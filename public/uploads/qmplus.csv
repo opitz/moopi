@@ -1,0 +1,200 @@
+Name,Path,Repository,Developer,Version,Tag,Commit
+Moodle,core,,,3.8.5 (Build: 20200914),3.8.5 (Build: 20200914),
+Merge user accounts,admin/tool/mergeusers,git@github.com:ndunand/moodle-tool_mergeusers.git,,2019082000,master,873a0173abe6583bef8251b577dab860d9168cac
+CAS server (SSO) with external database,auth/cas_db,git@github.com:ULCC-QMUL/moodle-auth_cas_db.git,,2016012600,master,b6ef8be3c99a8dbe81c1de94e264e553eca1ba44
+External database (sync to other),auth/dbsyncother,git@github.com:ULCC-QMUL/moodle-auth_dbsyncother2.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2018050900,MISCOMMON,adcc71102569a837c7dfb8f36695a86bae244741
+OpenID Connect,auth/oidc,git@github.com:Microsoft/moodle-auth_oidc.git,(C) 2014 onwards Microsoft  Inc. (http://microsoft.com/),2020020300,v3.8.0.0,85763288e8d2f447d05ffd2640f9855fbc57c90d
+SAML2,auth/saml2,git@github.com:catalyst/moodle-auth_saml2.git,Brendan Heywood <brendan@catalyst-au.net>,2020031800,,7241eaa54e9078df4ef1b475e5b7a19e55b2bfaa
+$string[pluginname] = "ULCC Single sign on",auth/ulcc_sharedsecret_sso,git@github.com:ULCC-QMUL/moodle-auth_ulcc_sharedsecret_sso.git,&copy; 2011 University of London Computer Centre,201203200101,master,d19c3c3dc337c2946f0834212ced6a13c3e778eb
+Accessibility,blocks/accessibility,git@github.com:ULCC-QMUL/moodle-block_accessibility.git,Copyright 2009 onwards Taunton's College                   (5),2015011600,master,81058b025be4413276b0329f98825352d7caeae9
+Talis Aspire Resource Lists,blocks/aspirelists,git@github.com:ULCC-QMUL/talis-block_aspirelists.git,,2018052910,master,484b8454f275f3d095fbbfc11bc2cabeb8e01705
+Assessment Information,blocks/assessment_information,git@github.com:ULCC-QMUL/moodle-block_assessment_information.git,2015 Queen Mary University of London Shubhendra Doiphode,2019011806,,9aff4fa7cdb06de63d12928b3bd158cbcbd68957
+Assignment Get Feedback,blocks/assign_get_feedback,git@github.com:ULCC-QMUL/moodle-block_assign_get_feedback.git,,2020032602,master,458fa499e4786261b15e44b7ffa6051fbb1e0852
+Bulk activity creation,blocks/bulkactivity,git@github.com:doiphode/moodle-block_bulkactivity.git,2019 Queen Mary University of London,2019012002,,86808f178dc65ebbc06065d7bc35fe877112636b
+Checklist,blocks/checklist,git@github.com:davosmith/moodle-block_checklist.git,2010 Davo Smith,2020021600,,da2c6a48a31c60c54816af7eaa57ee7dcdbb0a7d
+Completion Progress,blocks/completion_progress,git@github.com:/deraadt/moodle-block_completion_progress,2018 Michael de Raadt,2020033000,^42bbe9728708902b5edcd2203f8054b3a134edf8,42bbe9728708902b5edcd2203f8054b3a134edf8
+Course Menu,blocks/course_menu,git@github.com:ULCC-QMUL/moodle-block_course_menu.git,,2018052500,Upgrade2020,764ce0601b6e7efe71915aace4bdbcd4d871aa47
+Course Profile,blocks/course_profile,git@github.com:ULCC-QMUL/moodle-block_course_profile.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2016061600,develop_36,ebc497ff7ef32b0ca86e063b42449c8d2e83146c
+Course Rollover,blocks/course_rollover,git@github.com:ULCC-QMUL/moodle-block_course_rollover.git,,2020030900,Upgrade2020,9891747ec2b964dcfb88b663cb264b75e9cadf43
+QM+ Glossary Subscriptions,blocks/glsubs,git@github.com:ULCC-QMUL/moodle-block_glsubs.git,,2019111800,,3445b036138810f9eb646af2df78630a26f3d172
+Kortext Bookshelf,blocks/kortext,git@github.com:ULCC-QMUL/moodle-block_kortext.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2019091300,master,fa726d6ebba26ca870fd7b7559161dabce8f4f41
+Landing page,blocks/landingpage,git@github.com:ULCC-QMUL/moodle-block_landingpage.git,2017 Davo Smith  Synergy Learning,2017061200,develop_38,27c33b25919bc58973f287d92f10076cd5c73a76
+Mass action block,blocks/massaction,git@github.com:ULCC-QMUL/moodle-block_massaction.git,,2017071000,Upgrade2019,d671a8c95a52d116e6f020a4a4c37b2e4df3d848
+Messages,blocks/messages,git@github.com:moodlehq/moodle-block_messages.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2017051500,master,4634784300a06cee713f0fd1540405db2a940c84
+Microsoft block,blocks/microsoft,git@github.com:Microsoft/moodle-block_microsoft.git,(C) 2014 onwards Microsoft  Inc. (http://microsoft.com/),2020020300,v3.8.0.0,4544a27aee34d05ec4dca53805805589f5aa4e81
+Content Creation,blocks/modlib,git@github.com:ULCC-QMUL/moodle-block_modlib.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2019102400,GM,9892b119ab82c1ba1e1f2e398101308302a8a383
+Module Info,blocks/module_info,git@github.com:ULCC-QMUL/moodle-block_module_info.git,,2017092201,Sept2019,2bba9e078c0af86182f8527a0422c9e80bd265aa
+OneNote block,blocks/onenote,git@github.com:Microsoft/moodle-block_onenote.git,Microsoft  Inc.,2016062001,master,d9313b24df7b9c1bdc50447d48406a7b348f231e
+Evaluations (EvaSys),blocks/onlinesurvey,git@github.com:ULCC-QMUL/moodle-block_onlinesurvey.git,,2018092600,develop_36,efdc6789014131e9520ca498a614f0234531faa2
+Pearson Custom (Block),blocks/pearson,git@github.com:ULCC-QMUL/moodle-block_pearson.git,2012-2013 Pearson Education,2017052300,master,dd944c62d7458b9afd4db01881a089cc51f1ce69
+Progress Bar,blocks/progress,git@github.com:deraadt/Moodle-block_progress.git,2010 Michael de Raadt,2016081800,master,6f34f5073026d3a69b7603036f6eac695d5455e9
+QMplus Module overview (QMplus),blocks/qmplus_course_overview,git@github.com:ULCC-QMUL/moodle-block_qmplus_course_overview.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2014120300,master,ef1b36ff28afe1483a1c197ce6882b56d1fe091f
+QMUL blindmarking block,blocks/qmul_blindmarking,git@github.com:ULCC-QMUL/moodle-block_qmul_blindmarking.git,2018 Queen Mary University of London,2018090701,master,c93d9e86eb05d10b2cedac77a89a3616e1b68e16
+Course Mappings,blocks/qmul_course_mappings,git@github.com:ULCC-QMUL/moodle-block_qmul_course_mappings.git,2015 Queen Mary  University of London,2015070300,master,30c0b6fdae592a1551236ba2368c707aa0a2caf9
+Course Metadata,blocks/qmul_course_metadata,git@github.com:ULCC-QMUL/moodle-block_qmul_course_metadata.git,2015 Queen Mary University of London,2015062201,master,f8c49a37b8b31fe76bfa1c6f38c0cb0eabbcdefa
+My QMUL Modules,blocks/qmul_my_qmplus,git@github.com:ULCC-QMUL/moodle-block_qmul_my_qmplus.git,2015 onwards ITS QMUL (http://www.its.qmul.ac.uk/),2015092403,master,ed21d140cb0cf0f508acd33cf94b05e1bb005082
+Quickmail,blocks/quickmail,git@github.com:ULCC-QMUL/moodle-block_quickmail.git,2008-2017 Louisiana State University,2017122001,Upgrade2020,1bbf446ca62a06a2fade43db6933a3c1879944ef
+Sharing Cart,blocks/sharing_cart,git@github.com:donhinkelman/moodle-block_sharing_cart.git,2020 (c) Don Hinkelman,2020090100,,ffc3ef2790c912ac263d322a3bc1617057a2466a
+NED Side bar,blocks/side_bar,git@github.com:ULCC-QMUL/moodle-block_side_bar.git,2016 onwards Fernando Oliveira,2016090600,master,d5e904669e0d72d95940791da27e86de04ace13d
+$string[pluginname] = TurningTech Block,blocks/turningtech,git@github.com:ULCC-QMUL/moodle-block_turningtech.git,Turning Technologies,2014110400,develop,2646ceed0298fb32cb427f7a731e2be0a93bdd12
+Turnitin block,blocks/turnitin,git@github.com:turnitin/moodle-block_turnitin.git,,2018121801,master,3d987c98c9875415a955782d2525479384c40159
+ULCC Administration,blocks/ulcc_diagnostics,git@github.com:ULCC-QMUL/moodle-block_ulcc_diagnostics.git,,2013070800,master,404599dba7950c7b8080d35fef9773254644f50d
+Widgets,blocks/widgets,git@github.com:ULCC-QMUL/moodle-block_widgets.git,2017 Davo Smith  Synergy Learning,2018041100,,608bda1ed8178d4903de6ad6865ed300c2a64177
+Level up!,blocks/xp,git@github.com:/FMCorz/moodle-block_xp,2014 Frédéric Massart,2020043003,v3.9.0,3ec9a3aad9a3893071fb550e8378c00b846be511
+Flexible sections format,course/format/flexsections,git@github.com:marinaglancy/moodle-format_flexsections.git,2012 Marina Glancy,2017102700,3.2.2,d8b44d08128f2b2da301191cc07f7c175d82a668
+Grid format,course/format/grid,git@github.com:ULCC-QMUL/moodle-format_grid.git,&copy; 2012 G J Barnard in respect to modifications of standard topics format.,2016111506,master,3fa32de8c01508e20081e9b422cc91eec731b904
+Landing Page format,course/format/landingpage,git@github.com:ULCC-QMUL/moodle-format_landingpage.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2017080200,develop_38,32499b7d13c31ca0e6e8632738279b52b8fa8c02
+Grid format (QMUL),course/format/qmulgrid,git@github.com:ULCC-QMUL/moodle-format_qmulgrid.git,&copy; 2012 G J Barnard in respect to modifications of standard topics format.,2018041100,GM,595cf1dac15c38bfbeaba024d8d94458eb1a33f6
+Collapsed Topics (QMUL),course/format/qmultc,git@github.com:ULCC-QMUL/moodle-course_format_qmultc.git,&copy; 2009-onwards G J Barnard in respect to modifications of standard topics format.,2019011800,dev,43b406be6c49de81d963ac3ff2433d0fc9163d7a
+Topics (QMUL),course/format/qmultopics,git@github.com:ULCC-QMUL/moodle-course_format_qmultopics.git,Matthias Opitz (opitz@qmx.de),2019011800,dev,64e57984b561c55add42d31c742d698e7ddf4459
+Weekly format (QMUL),course/format/qmulweeks,git@github.com:ULCC-QMUL/moodle-course_format_qmulweeks.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2019011800,dev,f500421ab301e6ef0577279261ab5ad9ee7301bf
+Collapsed Topics,course/format/topcoll,git@github.com:ULCC-QMUL/moodle-format_topcoll.git,&copy; 2009-onwards G J Barnard in respect to modifications of standard topics format.,2018121902,QMU-develop-36,587e75381e576133f78fdaa0b98db29874d39ee5
+Topics2 format,course/format/topics2,git@github.com:opitz/moodle-format_topics2.git,Matthias Opitz (opitz@qmx.de),2019041100,MOODLE_38_STABLE,869ae4473e883121510ecfa99cff322df1684c23
+Weekly2 format,course/format/weeks2,git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git,2020 Matthias Opitz (opitz@qmx.de),2019041100,MOODLE_38_STABLE,95a37e838b474334b7ee2501b757a4fbc3d1f3a2
+Auto enrolment,enrol/auto,git@github.com:ULCC-QMUL/moodle-enrol_auto.git,,2017091400,master,1b82773c7d6d2f620ff56ddcf980de9f43b52cda
+Cohort category enrolment,enrol/cohortcateg,git@github.com:ULCC-QMUL/moodle-enrol_cohortcateg.git,,2018020600,master,71429f7ec431fe224374111635198dafcb2d928d
+$string[pluginname] = External database extended,enrol/databaseextended,git@github.com:ULCC-QMUL/moodle-enrol_databaseextended.git,2010 Petr Skoda {@link http://skodak.org},2013120301,master,543ab7993ead62e0fdbd1404fa49d2209bd84daf
+Microsoft OneDrive,files/converter/onedrive,git@bitbucket.org:uonmoodle/moodle-fileconverter_onedrive.git,2018 University of Nottingham,2019120500,MOODLE36,ea29a623a98ee5341ae58623f87bef097c8fa3f6
+,filter/easychem,git@github.com:ULCC-QMUL/moodle-filter_easychem.git,2014 onwards Carl LeBlond,2015010800,master,7d40f8f7d71893e2cf0ee5db22e0ddc90b54864b
+Echo360 LTI Launch Filter,filter/echo360,git@github.com:ULCC-QMUL/moodle-filter_echo360.git,2020 Echo360 Inc.,2020081801,v1.0.25,da8766ff7d35c7884bce57498f97f79e84a22664
+Embed questions,filter/embedquestion,git@github.com:moodleou/moodle-filter_embedquestion.git,2018 The Open University,2019091600,v1.7,e7696ba9295a543dcb3af597b8bf85a7325edca9
+,filter/freemind,git@github.com:ULCC-QMUL/moodle-filter_freemind.git,2011 Johannes A. Albert <contact@johannesalbert.com>,2016042900,develop_303,71450a0223c2e8f8403b4ab32e065e062d89215b
+H5P Filter,filter/h5p,git@github.com:rschrenk/moodle-filter_h5p.git,2018 Digital Education Society (http://www.dibig.at),2019062500,,a73870d746185a7e395af0ac50877cf877c7eef5
+,filter/imageopt,git@github.com:/gthomas2/moodle-filter_imageopt,Copyright (c) 2016 Guy Thomas.,2018062800,MOODLE_36_STABLE,b7ef271d7b8dc4a6f57357b73a7564460edb58c8
+Jmol,filter/jmol,git@github.com:geoffrowland/moodle-filter_jmol.git,2013 Geoffrey Rowland <rowland dot geoff at gmail dot com>,2016050100,master,ad84d815666f2439731959bebb23565d9eec44d8
+,filter/kaltura,git@github.com:ULCC-QMUL/moodle-filter_kaltura.git,(C) 2014 Remote-Learner.net Inc (http://www.remote-learner.net),2019080436,moodle_36_dev,334f155415f91bbf2eb2131e8134dae2903217ad
+,filter/oembed,git@github.com:ULCC-QMUL/moode-filter_oembed.git,Erich M. Wappis / Guy Thomas 2016,2019112600,moodle38,64a602ea2e2f7740aa87aa4abcede255eaf0c2e2
+,filter/replace,git@github.com:ULCC-QMUL/moodle-filter_replace.git,2016 ULCC {@link http://www.ulcc.ac.uk},2016090800,master,c6e6d0ec7faa8cfa383c9ad5e719984a51414539
+Checklist,grade/export/checklist,git@github.com:davosmith/moodle-grade_checklist.git,2010 Davo Smith,2019051900,,06c5a3442546fc854bd742776d0ae155531edbbd
+BTEC marking,grade/grading/form/btec,git@github.com:ULCC-QMUL/moodle-gradingform_btec.git,2014 Marcus Green <marcusavgreen at gmail.com>,2016083116,master,d766c0eb5a46bd754c40616e097aa3892553420f
+Sync Pearson Custom Grades,grade/import/directpearsonjson,git@github.com:ULCC-QMUL/moodle-gradeimport_directpearsonjson.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2017052300,master,166444eff0b392479f30e42a0b1011eb301a8af8
+Marking report,grade/report/marking,git@github.com:ULCC-QMUL/moodle-gradereport_marking.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2012112900,develop_34,f0aa3269349ee493b0b4a329f33ce54ebc77c1b9
+QMUL SITS Marks Transfer,grade/report/qmul_sits,git@github.com:ULCC-QMUL/moodle-gradereport_qmul_sits.git,,2015031900,master,71d0a98719df8f4cbcb73b28d2a1c5f18c375902
+Chemistry editor,lib/editor/atto/plugins/chemistry,git@github.com:ULCC-QMUL/moodle-editor_atto_chemistry.git,2014 Geoffrey Rowland <rowland.geoff@gmail.com>,2015092900,master,89dfd7c8aa49550b9fcbe5ac2dd1bb16c3510fab
+Computer science editor,lib/editor/atto/plugins/computing,git@github.com:ULCC-QMUL/moodle-editor_atto_computing.git,2014 Geoffrey Rowland <rowland.geoff@gmail.com>,2015092900,master,e456bf185b981b223682e0077f6898566a1498b9
+EasyChem Equation/Structure Editor,lib/editor/atto/plugins/easychem,git@github.com:ULCC-QMUL/moodle-editor_atto_easychem.git,2014 onwards Carl LeBlond,2015010800,master,14911351d614d59e7092790c23d0430c196c6697
+Echo360 Plugin (Atto),lib/editor/atto/plugins/echo360attoplugin,git@github.com:ULCC-QMUL/moodle-editor_atto_echo360attoplugin,2020 Echo360 Inc.,2020081801,v1.0.25,f70ad0b6d29915d9f87c02930dbc7b887a032b80
+Embed question,lib/editor/atto/plugins/embedquestion,git@github.com:moodleou/moodle-atto_embedquestion.git,2018 The Open University,2019111500,v1.5,600ece7b5c51e3a55b1210af6f25bd3289752431
+Font family,lib/editor/atto/plugins/fontfamily,git@github.com:projectestac/moodle-atto_fontfamily.git,2015 Pau Ferrer OCaña,2020010600,master,ad87cd2a5bee9f087d5f3026043c9d62dcaaed97
+Font size,lib/editor/atto/plugins/fontsize,git@github.com:andrewnicols/moodle-atto_fontsize.git,2014 Andrew Nicols 2015 Adam Jenkins,2015042701,master,d6b5551a99c35e60f2a2887c181cb3c574c258b1
+Toggle full screen,lib/editor/atto/plugins/fullscreen,git@github.com:dthies/moodle-atto_fullscreen.git,2014 onward Daniel Thies <dethies@gmail.com>,2015122011,,fd192511a38d886cba615d21ae0c5b08349041ae
+HTMLPlus,lib/editor/atto/plugins/htmlplus,git@github.com:ULCC-QMUL/moodle-editor_atto_htmlplus.git,2014 Andrew Nicols <andrew@nicosl.co.uk>,2015082100,master,9a3320fc70b2fd1c6679e7b1b8c0d4de9b291860
+Embed Kaltura Media,lib/editor/atto/plugins/kalturamedia,git@github.com:ULCC-QMUL/moodle-editor_atto_kalturamedia.git,2013 Damyon Wiese  <damyon@moodle.com>,2019080436,moodle_36_dev,3154747dd73a5c1c39925bf41f10b245139aa879
+Mathslate,lib/editor/atto/plugins/mathslate,git@github.com:ULCC-QMUL/moodle-editor_atto_mathslate.git,2013 onward Daniel Thies <dthies@ccal.edu>,2015041602,master,54db736571710d0c354dd10f36dabd658a17758e
+More font colors,lib/editor/atto/plugins/morefontcolors,git@github.com:ndunand/moodle-atto_morefontcolors.git,2014-2015 Université de Lausanne,2018050202,master,5cea04827ca0e5eba507068f59b037645c1c6233
+QMplus Block Quote,lib/editor/atto/plugins/qmulblockquote,git@github.com:ULCC-QMUL/moodle-editor_atto_qmulblockquote.git,2015 Queen Mary University of London,2015052909,develop_34,effc702b8e839afc336ea3e1278873410fab96a9
+QMplus Citation,lib/editor/atto/plugins/qmulcite,git@github.com:ULCC-QMUL/moodle-editor_atto_qmulcite.git,2015 Queen Mary University of London,2015052905,master,9172fb703b6430c8e5d915c1ace48cff849ae434
+QMplus Columns,lib/editor/atto/plugins/qmulcolumns,git@github.com:ULCC-QMUL/moodle-editor_atto_qmulcolumns.git,2015 Queen Mary University of London,2017052301,develop_34,a33ab2520f65786e2a104c5d82a042a4eb5c3286
+QMplus Icons,lib/editor/atto/plugins/qmulicons,git@github.com:ULCC-QMUL/moodle-editor_atto_qmulicons.git,2015 Queen Mary University of London,2015052907,develop_34,40f4326cdf45cdc614b71dacca0742f14a6dcc2e
+QMplus Text Highlighter,lib/editor/atto/plugins/qmultexthighlight,git@github.com:ULCC-QMUL/moodle-editor_atto_qmultexthighlight.git,2015 Queen Mary University of London,2015062903,master,0b508268c323580215f390c9692fc322bb36b84a
+QMplus Headers,lib/editor/atto/plugins/qmultitle,git@github.com:ULCC-QMUL/moodle-editor_atto_qmultitle.git,2015 Queen Mary University of London,2015072703,develop_34,43c17fe2905e5c98959c4ddcfe2acccfa8b15a66
+Snippet (Atto),lib/editor/atto/plugins/snippet,git@github.com:/justinhunt/moodle-atto_snippet,COPYRIGHTINFO,2018041000,gdpr,b6785061ca85c9b36990886f70c83390367b4c57
+Kaltura media,lib/editor/tinymce/plugins/kalturamedia,git@github.com:ULCC-QMUL/moodle-editor_tinymce_kalturamedia.git,(C) 2014 Remote Learner.net Inc http://www.remote-learner.net,2019080436,moodle_36_dev,8adfedfd98b0ff95b82e6e4436a1947d4a3148d5
+TinyMCE Mathslate,lib/editor/tinymce/plugins/mathslate,git@github.com:ULCC-QMUL/moodle-editor_tinymce_mathslate.git,2013 onward Daniel Thies,2015041701,master,c765d15309e94d64193acf2408e5fb555ed77bab
+Activity to do list,local/activitytodo,git@github.com:ULCC-QMUL/moodle-local_activitytodo.git,2017 Davo Smith  Synergy Learning,2017051000,develop_38,addea0a479722ad99d990e3d68696e9399e629b2
+Anonymous posting in forums,local/anonymousposting,git@github.com:jleyva/moodle-local_anonymousposting.git,2011 Juan Leyva <juanleyvadelgado@gmail.com>,2017091200,master,925078363789fccd20fde1b219dc8fe0dee68cf9
+BulkActions,local/bulkactions,git@github.com:ULCC-QMUL/moodle-local_bulkactions,,2019061200,master,665f505dc207c001c7cdcfe97407fbb866616471
+course_backup,local/course_backup,git@github.com:ULCC-QMUL/moodle-local_course_backup.git,Gerry G Hall <gerryghall.co.uk>,2013011301,master,fc901519cfda3ac40cf00354ddaec37ebb80a269
+Course Creation Wizard,local/course_creation_wizard,git@github.com:ULCC-QMUL/moodle-local_course_creation_wizard.git,,2018070909,Upgrade2020,8ef8d334c6395b3d936541cc623b73acd4fa526d
+Kaltura package libraries,local/kaltura,git@github.com:ULCC-QMUL/moodle-local_kaltura.git,(C) 2014 Remote Learner.net Inc http://www.remote-learner.net,2019080436,moodle_36_dev,baf6abf20681dce8ed995786d1c9ed9121b4208d
+Kaltura Media Gallery,local/kalturamediagallery,git@github.com:ULCC-QMUL/moodle-local_kalturamediagallery.git,(C) 2014 Remote Learner.net Inc http://www.remote-learner.net,2019080436,moodle_36_dev,5c9b2f2cd4d059a4953d0b57981d1d6627921ef2
+Landingpages,local/landingpages,git@github.com:ULCC-QMUL/moodle-local_landingpages.git,,20160622000,master,7fac2191102a204161184be4891774d3a8d386a1
+Mass enrolments,local/mass_enroll,git@github.com:doiphode/moodle-local_mass_enroll.git,,2020060901,moodle_38,5089f5ad66ad68d94059afd4f05c3a08e9caf6fd
+Moodle Mobile additional features,local/mobile,git@github.com:moodlehq/moodle-local_mobile.git,2014 Juan Leyva <juan@moodle.com>,2018120300,MOODLE_36_STABLE,1d380a400660fafd189153ffd4ca46c462728f26
+Microsoft Account,local/msaccount,git@github.com:Microsoft/moodle-local_msaccount.git,Microsoft  Inc.,2016062002,master,b83a35402647925e4ae4a746770cd23607c2014c
+My Media,local/mymedia,git@github.com:ULCC-QMUL/moodle-local_mymedia.git,(C) 2014 Remote Learner.net Inc http://www.remote-learner.net,2019080436,moodle_36_dev,a372fbd47b94b40ccbd84ec909d1278a94131fb5
+Microsoft Office 365 Integration,local/o365,git@github.com:Microsoft/moodle-local_o365.git,(C) 2014 onwards Microsoft  Inc. (http://microsoft.com/),2020020301,v3.8.0.1,5825a98d23fa9ec717cbac47c7b1a938e6a65fba
+Office 365 Integration,local/office365,git@github.com:Microsoft/moodle-local_office365.git,(C) 2014 onwards Microsoft  Inc. (http://microsoft.com/),2020020301,v3.8.0.1,ae26bead2558ad1a756ba55f0bc46c3aaa327b98
+Microsoft OneNote,local/onenote,git@github.com:Microsoft/moodle-local_onenote.git,Microsoft  Inc.,2020020300,v3.8.0.0,202aa5e722695ca005fa63e044148afa4b1ac93f
+Orphan2Stealth,local/orphan2stealth,git@github.com:ULCC-QMUL/moodle-local_orphan2stealth.git,,2018070301,live,f828c0ccaa20c1a39ee49704a70239be900a28ff
+Pearson Custom (Local),local/pearson,git@github.com:ULCC-QMUL/moodle-local_pearson.git,,2017052300,master,d910749f3e795616497b40a3c3c7065799c30e7a
+QMUL Physics App Page Renderer,local/physicsapp,git@github.com:ULCC-QMUL/moodle-local_physicsapp.git,,2013090400,master,ab005d9c6e69a8333d415d433d8f1cfbcaaeee1e
+Activities Calendar,local/qm_activities,git@github.com:ULCC-QMUL/moodle-local_qm_activities.git,,2021021700,master,83d2540960a03b9845b88871d4a6e6c446138e13
+Coursework coversheet,local/qmcw_coversheet,git@github.com:ULCC-QMUL/moodle-local_qmcw_coversheet.git,2017 Queen Mary University of London,2018072300,master,9d87fbb8acbcdbe8ed55485023c1baabd5827726
+QMUL Model,local/qmframework,git@github.com:ULCC-QMUL/moodle-local_qmframework.git,2017 onwards Catalyst IT {@link http://www.catalyst-eu.net/},2018062500,client-qmul-3.4-prod-WR313667,ac0a5f23308433bef19cdd0b9a4545ea1f0b6234
+Gradesplus,local/qmul_dashboard,git@github.com:ULCC-QMUL/moodle-local_qmul_dashboard.git,2015 Queen Mary University of London,2017021400,,6cf33c10ac9043be68fbdd358edd206e1587b941
+QMUL Download Submissions,local/qmul_download_submissions,git@github.com:ULCC-QMUL/moodle-local_qmul_download_submissions.git,2016 Queen Mary University of London,2016050300,,4d9a5bbf16a7955f8ca8b3c1820b6a4ea4f3d3d9
+Qmul messaging,local/qmul_messaging,git@github.com:ULCC-QMUL/moodle-local_qmul_messaging.git,,2018041101,master,93e9f5f04a69253382f0473103a242979b606bc9
+QMUL sync,local/qmul_sync,git@github.com:ULCC-QMUL/moodle-local_qmul_sync.git,,2015070301,master,fabe04e92714747258cd30d5841babb5ab7041b5
+QMUL JP Students system enrollment (CLI),local/qmul_system_role_sync,git@github.com:ULCC-QMUL/moodle-local_qmul_system_role_sync.git,Greg Pasciak/QMUL,2016011300,develop_30,4ea737fe894b89d414a563099d77a3b10b527d57
+Qsection,local/qsection,git@github.com:ULCC-QMUL/moodle-local_qsection.git,,2018121801,master,7c0cbb55eaa35a68348ffbb5dc529e5dca61db84
+Rollover Plugin,local/rollover_plugin,git@github.com:ULCC-QMUL/moodle-local_rollover_plugin.git,,2016021700,Jan2017,3d003c38bda3d73c964390ddb6eec91ea1cf47a5
+Sandbox,local/sandbox,git@github.com:moodleuulm/moodle-local_sandbox.git,2014 Alexander Bias  Ulm University <alexander.bias@uni-ulm.de>,2020021400,,a32d7e865bf8540c1868edcdba7bdb16b0cf1dc1
+Simple course creator,local/simple_course_creator,git@github.com:doiphode/moodle-local_simple_course_creator.git,2019 Queen Mary University of London,2019042204,master,b7ab198eca2a2076d1fa6c1398e197f2efbc74ee
+TabTransformer,local/tabtransformer,git@github.com:ULCC-QMUL/moodle-local_tabtransformer.git,,2019020100,GM,b69e89e48748769a2c00e12c75cbb5d6f5fb752e
+Widget plugins for widgets block,local/widgets,git@github.com:ULCC-QMUL/moodle-local_widgets.git,2017 Davo Smith  Synergy Learning,2018041100,develop_38,2251d40f346d72eaef14e995ed77b04bc302db21
+Level up! Plus,local/xp,git@github.com:ULCC-QMUL/moodle-local_xp.git,2017 Frédéric Massart,2020070300,v1.9.1,1a0b4fed0d4f78f050da8d091743b748da02be40
+Aspire resource list,mod/aspirelist,git@github.com:tonyjbutler/moodle-mod_aspirelist.git,2014 onwards Lancaster University {@link http://www.lancaster.ac.uk/},2016121900,MOODLE_32_STABLE,45f259eeb33e2ef35708098e806d8fbfa0ca44c4
+Course Resource List,mod/aspirelists,git@github.com:ULCC-QMUL/talis-mod_aspirelists.git,,2017091902,sept_2019,ef1f83c5167ed85f33e064c86ad14d8590a60d0e
+OneNote feedback,mod/assign/feedback/onenote,git@github.com:Microsoft/moodle-assignfeedback_onenote.git,Microsoft  Inc. (based on files by NetSpot {@link http://www.netspot.com.au}),2020020300,MOODLE_38_STABLE,91907c60cb03b6c702690565c333ea955c06f366
+Mahara portfolio,mod/assign/submission/mahara,git@github.com:ULCC-QMUL/moodle-assignsubmission_mahara.git,2012 Lancaster University,2017101600,master,dca9348afb6285000cec1ba57f087da85143a91c
+OneNote submissions,mod/assign/submission/onenote,git@github.com:Microsoft/moodle-assignsubmission_onenote.git,Microsoft  Inc. (based on files by NetSpot {@link http://www.netspot.com.au}),2020020300,MOODLE_38_STABLE,315bfcbd6883dd65891b6ff068d32d5c58705a47
+Online audio recording,mod/assign/submission/onlineaudio,git@github.com:ULCC-QMUL/moodle-assignsubmission_onlineaudio.git,2012 Paul Nicholls,2014112403,master,fad37d41f6d67feab0bd2e5a176e3ac328129bf6
+Coursework coversheet submission,mod/assign/submission/qmcw_coversheet,git@github.com:ULCC-QMUL/moodle-mod-assign-submission_qmcw_coversheet.git,2017 Queen Mary University of London,2018072300,timebox1.1,d01684e4c2e7559293685f3b53b02d9d8197fc5d
+Attendance,mod/attendance,git@github.com:danmarsden/moodle-mod_attendance.git,2011 Artem Andreev <andreev.artem@gmail.com>,2020072900,,31d5024517dd4d8197083018d98cd5fe381f1f5c
+Certificate,mod/certificate,git@github.com:markn86/moodle-mod_certificate.git,Mark Nelson <markn@moodle.com>,2016061700,,54e024f9fd69fdecd883ef94fd32cdf005faa809
+Checklist,mod/checklist,git@github.com:davosmith/moodle-checklist.git,,2020012900,MOODLE_38_STABLE,b51e818e97057dbd683d98f5470db01f845fc2b0
+Group choice,mod/choicegroup,git@github.com:ndunand/moodle-mod_choicegroup.git,2013-2015 Université de Lausanne,2019051002,2019051002,4299010b67e105145d883bf6c8050a6ceec0d439
+Collaborate Ultra,mod/collaborate,git@github.com:moodlerooms/moodle-mod_collaborate.git,Copyright (c) 2016 Blackboard Inc. (http://www.blackboard.com),2018080800,,161ea94618c98ca0dcfeb2c6916c8e645e327f16
+Group Members,mod/groupmembers,git@github.com:learnweb/moodle-mod_groupmembers.git,2017 Dennis M. Riehle  WWU Münster,2019081200,,2dfbd7c1641ad3fac901cdb67142a77cdc5f8e87
+,mod/hsuforum,git@github.com:open-lms-open-source/moodle-mod_hsuforum.git,1999 onwards Martin Dougiamas  {@link http://moodle.com},2020061100,MOODLE_38_STABLE,2bc3dad76fe336353fd920afdb6f6b7b42f110f2
+H5P,mod/hvp,git@github.com:h5p/h5p-moodle-plugin.git,2016 Joubel AS <contact@joubel.com>,2020020500,1.20.2,6d0a8aa7211842c0d89b1cb18300186b04da04d0
+Kaltura Media Assignment,mod/kalvidassign,git@github.com:ULCC-QMUL/moodle-mod_kalvidassign.git,(C) 2014 Remote Learner.net Inc http://www.remote-learner.net,2019080436,moodle_36_dev,658137eaed60a90bb0533b3c81336dbc89aed674
+Kaltura Video Presentation,mod/kalvidpres,git@github.com:ULCC-QMUL/moodle-mod_kalvidpres.git,(C) 2014 Remote Learner.net Inc http://www.remote-learner.net,2019080436,moodle_36_dev,84234fb5f03315b915138ff69fe4451de4b60584
+Kaltura Video Resource,mod/kalvidres,git@github.com:ULCC-QMUL/moodle-mod_kalvidres.git,(C) 2014 Remote Learner.net Inc http://www.remote-learner.net,2019080436,moodle_36_dev,b1c48459929a8b1b5b49190f0be4bf1d0eb2f14d
+Lightbox Gallery,mod/lightboxgallery,git@github.com:ULCC-QMUL/moodle-mod_lightboxgallery.git,2014 NetSpot Pty Ltd,2017110901,master,abcf0a94a4f4a889e3eb5b627f7ab0c1d0c7c59a
+OU Blog,mod/oublog,git@github.com:moodleou/moodle-mod_oublog.git,,2018032001,,a8d92829216a613b98d4de1fd3a155dd9ed9a5a3
+OU wiki,mod/ouwiki,git@github.com:moodleou/moodle-mod_ouwiki.git,2014 The Open University,2017101200,,1344769eac1ff673ee580d88867e5c10e7f895ae
+Pearson Custom (Mod),mod/pearson,git@github.com:ULCC-QMUL/moodle-mod_pearson.git,,2017052300,master,6ed9cdd8e5ac69e0eb3a39e7b009880d1e980062
+QMEvaluation,mod/qmevaluation,git@github.com:ULCC-QMUL/moodle-mod_qmevaluation.git,,2018110113,master,93a888be594606399cc1691114e8617180f15ad1
+Questionnaire,mod/questionnaire,git@github.com:PoetOS/moodle-mod_questionnaire.git,,2020011506,3.8.1,28c4c1c03d5d89d9de23f49f0a4d5d488f1ead20
+Acknowledge plagiarism statement access rule,mod/quiz/accessrule/honestycheck,git@github.com:moodleou/moodle-quizaccess_honestycheck.git,2011 The Open University,2018080900,,87622593e37a93d5678da942c8061f3dad68f1c5
+Download essay submissions,mod/quiz/report/downloadsubmissions,git@github.com:IITBombayWeb/moodle-quiz_downloadsubmissions.git,2017 IIT Bombay,2020100700,Version-1.1-r2,4d8e289890a29de2a16ef50924a81c7ecbb54430
+Fair Allocation,mod/ratingallocate,git@github.com:learnweb/moodle-mod_ratingallocate.git,2014 T Reischmann  C Usener,2019112100,^0a11c4fc6b0ae3bc918af714fbabb18e0b3b33e4,0a11c4fc6b0ae3bc918af714fbabb18e0b3b33e4
+Scheduler,mod/scheduler,git@github.com:bostelm/moodle-mod_scheduler.git,2018 Henning Bostelmann and others (see README.txt),2019120300,master,8c9da893c0c48ba142beb486721f1b8717378803
+Subpage,mod/subpage,git@github.com:ULCC-QMUL/moodle-mod_subpage.git,2014 The Open University,2018082900,QMU-develop-36,cbc3ca589bc117faf8619501786c75ba4f2dfe56
+Tab display,mod/tab,git@github.com:ULCC-QMUL/moodle-mod_tab.git,oohoo.biz                                                 **,2017121401,develop_34,d2d3bdaebe55a7675c1e1c90dfb6649f1b2e7333
+$string[pluginname] = TurningTechnologies,mod/turningtech,git@github.com:ULCC-QMUL/moodle-mod_turningtech.git,Turning Technologies,2019061300,,08091022fd05c90ffd43ec639a5a65efeeb7cecc
+Turnitin Assignment 2,mod/turnitintooltwo,git@github.com:turnitin/moodle-mod_turnitintooltwo.git,2012 iParadigms LLC,2019070201,^7a38ce09608a7dba0f94b12721ac1a04bd54904a,7a38ce09608a7dba0f94b12721ac1a04bd54904a
+Turnitin plagiarism plugin,plagiarism/turnitin,git@github.com:turnitin/moodle-plagiarism_turnitin.git,2012 iParadigms LLC,2020113001,master,35b5a30ea07dac49a10aee96937acad51f00e7d5
+Adaptive adapted for coderunner,question/behaviour/adaptive_adapted_for_coderunner,git@github.com:trampgeek/moodle-qbehaviour_adaptive_adapted_for_coderunner.git,Richard Lobb  The University of Canterbury  New Zealand.,2020021100,v1.3.7,c3236ceffac0fbd95f80129f45e68924c783db58
+Adaptive mode with hinting,question/behaviour/adaptivehints,git@github.com:ULCC-QMUL/moodle-qbehaviour_adaptivehints.git,2013 Oleg Sychev  Volgograd State Technical University,2016120500,master,a8c58dc7308733fabf03c6c9fecbda0ad18a5da9
+Adaptive mode with hinting (no penalties),question/behaviour/adaptivehintsnopenalties,git@github.com:ULCC-QMUL/moodle-qbehaviour_adaptivehintsnopenalties.git,2013 Oleg Sychev  Volgograd State Technical University,2016120500,master,8d9b46e4253fa2fc04a3d55aedf043599e17fe4c
+Adaptive mode (multi-part questions),question/behaviour/adaptivemultipart,git@github.com:maths/moodle-qbehaviour_adaptivemultipart.git,2012 The Open University,2018080600,^2c4a2061a3024306da27d3aedc1e5fb29d4aef36,2c4a2061a3024306da27d3aedc1e5fb29d4aef36
+Deferred feedback with CBM and explicit validation,question/behaviour/dfcbmexplicitvaildate,git@github.com:maths/moodle-qbehaviour_dfcbmexplicitvaildate.git,2012 The Open University,2018080600,master,8bbc8fe57cc2b0b071907da312b041ff41315216
+Deferred feedback with explicit validation,question/behaviour/dfexplicitvaildate,git@github.com:maths/moodle-qbehaviour_dfexplicitvaildate.git,2012 The Open University,2018080600,master,e372327596e6ab54acee38f90264f2878b652370
+Interactive mode with hinting,question/behaviour/interactivehints,git@github.com:ULCC-QMUL/moodle-qbehaviour_interactivehints.git,2013 Oleg Sychev  Volgograd State Technical University,2016120500,master,11b93c9ea712392bc5f2416a930109f793e591e6
+Question managed by a remote engine,question/behaviour/opaque,git@github.com:moodleou/moodle-qbehaviour_opaque.git,2006 The Open University,2018081400,,b8f8a5fe3a619fdf42146a3cc67cdb6398dec866
+H5P Content types,question/format/h5p,git@github.com:dthies/moodle-qformat_h5p.git,2020 Daniel Thies <dethies@gmail.com>,2020060900,,3dfb4b6f3f842ca4c078789651e95727e7d43662
+Microsoft Word 2010 table format (wordtable),question/format/wordtable,git@github.com:ecampbell/moodle-qformat_wordtable.git,2010-2016 Eoin Campbell,2018080301,,122bf8f7530e180bbcfdcd4a03077c1c9122b1be
+Algebra,question/type/algebra,git@github.com:jmvedrine/moodle-qtype_algebra.git,Roger Moore <rwmoore@ualberta.ca>,2019052800,master,cb3ef4ea0cfffb9236951a24defebb7edd0ab0c9
+CodeRunner,question/type/coderunner,git@github.com:trampgeek/moodle-qtype_coderunner.git,Richard Lobb  The University of Canterbury  New Zealand.,2020080300,v3.7.9,f4489d0a9784de0d8a19156d3a5a15576e163629
+Drag-and-Drop Matching,question/type/ddmatch,git@github.com:dualcube/Drag-and-Drop-Matching.git,2007 Adriane Boyd (adrianeboyd@gmail.com),2020071100,master,f7c812416a9150189cbf50f239bee6466451f303
+Gapfill,question/type/gapfill,git@github.com:ULCC-QMUL/moodle-qtype_gapfill.git,2013 Marcus Green,2017122301,master,b6c88d800b567eb5bff2e13007fa95b02b808287
+All-or-Nothing Multiple Choice,question/type/multichoiceset,git@github.com:jmvedrine/moodle-qtype_multichoiceset.git,1999 onwards Martin Dougiamas  {@link http://moodle.com},2019043000,master,6eda99013e26f92f6d3937e39ba05baf9a26d324
+Multinumerical,question/type/multinumerical,git@github.com:ndunand/moodle-qtype_multinumerical.git,2013 Université de Lausanne,2018050801,master,6b72bb02152635642686b71c2c84129c0edc7b7a
+Opaque,question/type/opaque,git@github.com:moodleou/moodle-qtype_opaque.git,2006 The Open University,2019110900,v2.8,2678362630bff427b2e799db1aa76725d2ec15df
+Ordering,question/type/order,git@github.com:ULCC-QMUL/moodle-qtype_order.git,,2014071900,master,cbbe2119548977df01ab512c281f610d33e6182a
+Ordering,question/type/ordering,git@github.com:gbateson/moodle-qtype_ordering.git,2013 Gordon Bateson (gordonbateson@gmail.com),2019121400,master,e72bcf9c7effbe0718c0687069ee4990cfec1892
+Pattern match,question/type/pmatch,git@github.com:moodleou/moodle-qtype_pmatch.git,2011 The Open University,2019111100,v2.9,0ba659baf63266b62d0ed4c6077f08f2240a09f1
+Reverse pattern match,question/type/pmatchreverse,git@github.com:timhunt/moodle-qtype_pmatchreverse.git,2013 Tim Hunt,2019110900,v1.5,3400986b26f25817e9bd379b3eb2b526a5d00a30
+POAS abstract question,question/type/poasquestion,git@github.com:ULCC-QMUL/moodle-qtype_poasquestion.git,2012 Oleg Sychev  Volgograd State Technical University,2016120500,master,d308502fa5613661e65cdcd737a69310d210b067
+Assignment Grades,report/assign_grades,git@github.com:ULCC-QMUL/moodle-report_assign_grades.git,2020 onwards Vasileios Sotiras,2020082102,,99a03ac6385ccc9508d3e8c58a280c5117d74859
+Export Component Grades,report/componentgrades,git@github.com:pauln/moodle-report_componentgrades.git,2014 Paul Nicholls,2019091300,,3e89142e45a71d0985dee848c3043f1d462782a8
+Embedded questions progress,report/embedquestion,git@github.com:ULCC-QMUL/moodle-report_embedquestion.git,2019 The Open University,2019091601,dev,6e5798a58186c8e4804b42787cc376b14d8f70cf
+Forum Graph,report/forumgraph,git@github.com:ctchanandy/moodle-report_forumgraph.git,2014-16 Andy Chan <ctchan.andy@gmail.com>,2016081200,Moodle-3.1,a7545dc7d15e139578ab9677158a96b496275ea2
+Overview statistics,report/overviewstats,git@github.com:ULCC-QMUL/moodle-report_overviewstatistics.git,2013 David Mudrak <david@moodle.com>,2015060101,master,07a965b2ae5560e3dfced6129a4680fe47b8a38e
+QM+ Admin Reports,report/qmplus,git@github.com:ULCC-QMUL/moodle-report_qmplus.git,2015 Queen Mary University of London,2018081200,SEP18,00b54c71a9897a3045e0e86b04d75a149376a741
+Evernote,repository/evernote,git@github.com:ULCC-QMUL/moodle-repository_evernote.git,2012 Frédéric Massart,2013113000,master,1962599fc84573a78c1509ff3340e66e6cf2a19b
+Office 365,repository/office365,git@github.com:Microsoft/moodle-repository_office365.git,(C) 2014 onwards Microsoft  Inc. (http://microsoft.com/),2020020300,,8fa4817763c37ee69dedff935aa583c407a1ba1c
+Boost Office365 Teams,theme/boost_o365teams,git@github.com:Microsoft/moodle-theme_boost_o365teams.git,2018 Enovation Solutions,2020020300,v3.8.0.0,6571c940858d4783a4c73e6f4dec18e28cf4fb79
+QMUL,theme/qmul,git@github.com:ULCC-QMUL/moodle-theme_qmul.git,2016 Andrew Davidson  Synergy Learning,2019050802,,c9bb2e10a4d1ff66eaf135fa0e5320680eaec431
+Queen Mary University of London Humanities,theme/qmul_humanities,git@github.com:ULCC-QMUL/moodle-theme_qmul_humanities.git,2016 Andrew Davidson  Synergy Learning,2017042801,,7a16db842ac10d2d0ae247d8424e29e9014ce95e
+Queen Mary University of London Learning,theme/qmul_learning,git@github.com:ULCC-QMUL/moodle-theme_qmul_learning.git,2016 Andrew Davidson  Synergy Learning,2017042801,,6bedd782027aed073b4a9fe4813af5d9c05ef99c
+Queen Mary University of London lifesciences,theme/qmul_lifesciences,git@github.com:ULCC-QMUL/moodle-theme_qmul_lifesciences.git,2016 Andrew Davidson  Synergy Learning,2017042801,,66a28cdda23b5bac612d394926dc45b5102a8f03
+Queen Mary University of London Medicine,theme/qmul_medicine,git@github.com:ULCC-QMUL/moodle-theme_qmul_medicine.git,2016 Andrew Davidson  Synergy Learning,2017042801,,72aa954c3faf71954daf834dc8f9f78d4553a954
+Queen Mary University of London Science,theme/qmul_science,git@github.com:ULCC-QMUL/moodle-theme_qmul_science.git,2016 Andrew Davidson  Synergy Learning,2017042801,,cbd8beecaa477ef45400187148aba53fb2758341
+Bootstrap Base,theme/synergy_bootstrap,git@github.com:ULCC-QMUL/moodle-theme_synergy_bootstrap.git,2013 Bas Brands  www.basbrands.nl,2013121900,develop,9cceaa093fcaa947e4ea6800e090cce1470ba279
+Queen Mary University of London Institute of Paris,theme/ulip,git@github.com:ULCC-QMUL/moodle-theme_ulip,2016 Andrew Davidson  Synergy Learning,2017042801,,edd9e943aa919eb9c0108dafbdc93c1e4db32fd1
+Office 365 Connection,user/profile/field/o365,git@github.com:ULCC-QMUL/moodle-profilefield_o365.git,(C) 2014 onwards Microsoft  Inc. (http://microsoft.com/),2016062000,master,c5690266d2c0c31017b12c9b34353590293416ca
+OpenIDConnect Management,user/profile/field/oidc,git@github.com:ULCC-QMUL/moodle-profilefield_oidc.git,(C) 2014 onwards Microsoft  Inc. (http://microsoft.com/),2016062000,master,e8033ebd8069855cbbd969d8b61dd8368ca80b37
