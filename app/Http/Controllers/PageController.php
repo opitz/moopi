@@ -11,7 +11,7 @@ use App\Models\Plugin;
 class PageController extends Controller
 {
     public function index() {
-        return view('upload.index');
+        return view('data.index');
     }
 
     public function uploadFile(Request $request){
@@ -37,7 +37,7 @@ class PageController extends Controller
                 // Check file size
                 if($fileSize <= $maxFileSize){
 
-                    // File upload location
+                    // File data location
                     $location = 'uploads';
 
                     // Upload file

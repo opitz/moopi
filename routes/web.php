@@ -3,7 +3,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CommitController;
 use App\Http\Controllers\PluginController;
-use App\Http\Controllers\UploadController;
+use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,5 +70,5 @@ Route::get('/collections/{collection}',[CollectionController::class,'show']);
 // PUT /plugins/:id
 // DELETE /plugins/:id
 
-Route::get('/upload', [UploadController::class, 'index']);
-Route::post('/uploadFile', [UploadController::class, 'uploadFile']);
+Route::get('/upload', [DataController::class, 'upload']);
+Route::post('/uploadFile', [DataController::class, 'uploadFile']);

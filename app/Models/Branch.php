@@ -9,4 +9,8 @@ class Branch extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function collections() {
+        return $this->hasMany(Collection::class);
+    }
 }

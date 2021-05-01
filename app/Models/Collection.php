@@ -16,5 +16,9 @@ class Collection extends Model
 //        die('wtff?');
         return $this->belongsToMany(Commit::class,'collection_commits');
     }
+
+    public function branch() {
+        return $this->belongsTo(Branch::class);
+    }
 }
 

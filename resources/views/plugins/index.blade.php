@@ -8,9 +8,9 @@
             <table>
                 @foreach ($plugins as $plugin)
                     <tr>
-                        <td><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
-                        <td>{{ $plugin->install_path }}</td>
-                        <td><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">Edit</a></td>
+                        <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
+                        <td class="data-column">{{ $plugin->install_path }}</td>
+                        <td class="action-column"><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-0">Edit</a></td>
                     </tr>
                 @endforeach
             </table>

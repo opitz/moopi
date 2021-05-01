@@ -12,16 +12,23 @@
                 </tr>
                 <tr>
                     <td class="label" width="10%">Moodle Branch</td>
-                    <td class="data">{{ $collection->moodle_branch }}</td>
+                    <td class="data">{{ $collection->branch->name }}</td>
                 </tr>
                 <tr>
                     <td class="label" width="10%">Plugins</td>
                     <td class="data">
-                        <ul>
+                        <table>
+                            <tr>
+                                <th>Plugin</th>
+                                <th>Commit ID</th>
+                            </tr>
                             @foreach($collection->commits as $commit)
-                                <li><a href="/commits/{{ $commit->id }}">{{ $commit->plugin->title }} / {{ $commit->tag }}</a></li>
+                                <tr>
+                                    <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
+                                    <td class="data-column"><a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a></td>
+                                </tr>
                             @endforeach
-                        </ul>
+                        </table>
                     </td>
                 </tr>
             </table>
