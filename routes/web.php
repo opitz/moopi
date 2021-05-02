@@ -23,7 +23,7 @@ Route::get('/laravel', function () {
 // Sequence is important here as it will parse top to bottom
 // and when an URL matches the route takes place leaving those behind that are
 
-Route::get('/',HomeController::class);
+Route::get('/',[CollectionController::class,'index']);
 
 Route::get('/home0',[HomeController::class,'index'])->name('home.index');
 Route::get('/home',[HomeController::class,'index']);
@@ -58,7 +58,7 @@ Route::get("/collections/create/",[CollectionController::class,'create']);
 // Store the Collection resource
 Route::post("/collections",[CollectionController::class,'store']);
 // Delete the Collection resource
-Route::post("/collections/delete/{collection}",[CollectionController::class,'destroy']);
+Route::get("/collections/delete/{collection}",[CollectionController::class,'destroy']);
 Route::get('/collections',[CollectionController::class,'index']);
 Route::get('/collections/{collection}',[CollectionController::class,'show']);
 
@@ -72,3 +72,4 @@ Route::get('/collections/{collection}',[CollectionController::class,'show']);
 
 Route::get('/upload', [DataController::class, 'upload']);
 Route::post('/uploadFile', [DataController::class, 'uploadFile']);
+Route::get('/collections/export/{collection}', [DataController::class, 'export']);

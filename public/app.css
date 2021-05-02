@@ -1,5 +1,10 @@
+table td, table td * {
+    vertical-align: top;
+}
+
 td.data-column {
     border-bottom: black;
+    vertical-align: top;
 }
 
 .w100 {

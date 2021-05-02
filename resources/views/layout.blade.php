@@ -11,7 +11,7 @@
         <div id="menu" class="container">
             <h2>MooPi - Moodle Plugin Information</h2>
             <hr>
-            <a href="/upload">Upload</a> | <a href="/plugins">Plugins</a> | <a href="/commits">Commits</a> | <a href="/collections">Collections</a>
+            <a href="/collections">Collections</a> | <a href="/plugins">Plugins</a> | <a href="/commits">Commits</a> |
         </div>
     </div>
     <hr>

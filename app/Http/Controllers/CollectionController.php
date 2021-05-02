@@ -58,7 +58,6 @@ class CollectionController extends Controller
      */
     public function show($id)
     {
-//        die('wtf?');
         return view('collections.show', [
             'collection' => Collection::find($id)
         ]);
@@ -95,6 +94,7 @@ class CollectionController extends Controller
      */
     public function destroy(Collection $collection)
     {
-        return "Collection destroying here...";
+        Collection::find($collection->id)->delete();
+        return redirect('/collections');
     }
 }

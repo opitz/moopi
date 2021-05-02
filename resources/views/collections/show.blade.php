@@ -20,11 +20,13 @@
                         <table>
                             <tr>
                                 <th>Plugin</th>
+                                <th>Path</th>
                                 <th>Commit ID</th>
                             </tr>
                             @foreach($collection->commits as $commit)
                                 <tr>
                                     <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
+                                    <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
                                     <td class="data-column"><a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a></td>
                                 </tr>
                             @endforeach
@@ -34,7 +36,8 @@
             </table>
             <div>
                 <br>
-                <a href="/collections/delete/{id}" class="button is-text btn btn-primary mb-3">Delete Collection</a>
+                <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Export Collection</a>
+                <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Delete Collection</a>
             </div>
         </div>
     </div>

@@ -38,6 +38,22 @@
                     <tr>
                         <td class="label">Commits:</td>
                         <td class="data">
+                            <table border="1">
+                                @foreach($plugin->commits as $commit)
+                                    <tr border="1">
+                                        <td class="data-column" valign="top"><a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a></td>
+                                        <td class="data-column">
+                                            <table border="1">
+                                                @foreach($commit->collections as $collection)
+                                                    <tr>
+                                                        <td class="data-column">{{ $collection->name }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </table>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
                             <ul>
                                 @foreach($plugin->commits as $commit)
                                     <li><a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a></li>

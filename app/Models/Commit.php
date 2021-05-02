@@ -13,7 +13,7 @@ class Commit extends Model
     public function plugin() {
         return $this->belongsTo(Plugin::class);
     }
-    public function collection() {
+    public function collections() {
         return $this->belongsToMany(Collection::class,'collection_commits');
     }
 }
