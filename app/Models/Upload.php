@@ -12,7 +12,7 @@ class Upload extends Model
 
     public static function insertData($data){
 
-        $value=DB::table('plugins')->where('github_url', $data['github_url'])->get();
+        $value=DB::table('plugins')->where('repository_url', $data['repository_url'])->get();
         if($value->count() == 0){
             DB::table('plugins')->insert($data);
         }

@@ -3,7 +3,15 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h2>Collections</h2>
+            <table class="table">
+                <tr class="titlearea">
+                    <td class="title">Collections</td>
+                    <td class="title-actions">
+                        <a href="/upload" class="button is-text btn btn-primary mb-3">Upload Collection</a>
+                        <a href="/collections/create" class="button is-text btn btn-primary mb-3">Add new Collection</a>
+                    </td>
+                </tr>
+            </table>
 
             <table class="table table-striped">
                 <tr>
@@ -28,12 +36,6 @@
                     </tr>
                 @endforeach
             </table>
-
-            <div>
-                <br>
-                <a href="/upload" class="button is-text btn btn-primary mb-3">Upload Collection</a>
-                <a href="/collections/create" class="button is-text btn btn-primary mb-3">Add new Collection</a>
-            </div>
         </div>
     </div>
 @endsection

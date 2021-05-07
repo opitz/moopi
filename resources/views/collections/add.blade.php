@@ -3,42 +3,43 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <table>
-                <tr class="titlearea">
-                    <td class="title">Collection</td>
-                    <td class="title-actions">
-                        <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Duplicate</a>
-                        <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-primary mb-3 disabled">Add</a>
-                        <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Edit</a>
-                        <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Export</a>
-                        <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-danger mb-3">Delete</a>
-                    </td>
-                </tr>
-            </table>
-
-
-
-            <div>
-                <br>
-            </div>
-
             <form method="POST" action="/collections/add_plugins/{{ $collection->id }}">
                 @csrf
                 @method('PUT')
 
                 <table class="table">
-                    <tr>
-                        <td class="label" width="10%">Name</td>
-                        <td><input class="form-control" type="text" name="name" id="name" value="{{ $collection->name }}"></td>
+                    <tr class="titlearea">
+                        <td class="title">Collection</td>
+                        <td class="title-actions">
+                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Duplicate</a>
+                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-primary mb-3 disabled">Add</a>
+                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Edit</a>
+                            <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Export</a>
+                            <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-danger mb-3">Delete</a>
+                        </td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td class="label" for="branch" width="10%">Moodle Branch</td>
+                        <td class="label">Name</td>
+                        <td><input class="form-control" type="text" name="name" id="name" value="{{ $collection->name }}"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="label" for="branch">Moodle Branch</td>
                         <td>
                             <select name="branch_id" id="branch_id">
                                 @foreach($branches as $branch)
                                     <option value="{{ $branch->id }}" {{ ($branch->id == $collection->branch->id ? 'selected':'') }}>{{ $branch->name }}</option>
                                 @endforeach
                             </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="label">No. of Plugins</td>
+                        <td id="plugins_number" class="data">{{ count($plugins) }}</td>
+                        <td class="data">
+                            <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
                         </td>
                     </tr>
                 </table>
@@ -55,7 +56,7 @@
                             <td class="data-column">
                                 <a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a>
                             </td>
-                            <td class="data-column">
+                            <td class="data-column install_path">
                                 <a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a>
                             </td>
 
@@ -81,7 +82,7 @@
                 <div class="field is-grouped">
                     <div class="control">
                         <button class="button is-link btn btn-primary mb-3" type="submit">Submit</button>
-                        <a href="/plugins" class="button is-text btn mb-3">Cancel</a>
+                        <a href="/collections/{{ $collection->id }}" class="button0 is-text btn mb-3">Cancel</a>
                     </div>
                 </div>
             </form>

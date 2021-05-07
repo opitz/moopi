@@ -3,9 +3,17 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h2>Plugin</h2>
-
             <table class="table">
+                <tr class="titlearea">
+                    <td class="title">Plugin</td>
+                    <td class="title-actions">
+                        <a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">Edit</a>
+                        <a href="/commits/create/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">New Commit</a>
+                        <a href="/plugins" class="button is-text btn btn-primary mb-3">Back</a>
+                    </td>
+                    <td></td>
+                </tr>
+
                 <tr>
                     <td class="label">Title</td>
                     <td class="data">{{ $plugin->title }}</td>
@@ -16,7 +24,7 @@
                 </tr>
                 <tr>
                     <td class="label">Repository</td>
-                    <td class="data">{{ $plugin->github_url }}</td>
+                    <td class="data">{{ $plugin->repository_url }}</td>
                 </tr>
                 <tr>
                     <td class="label">Developer</td>
@@ -29,6 +37,10 @@
                 <tr>
                     <td class="label">Wiki URL</td>
                     <td class="data"><a href="{{ $plugin->wiki_url }}" target="_blank">{{ $plugin->wiki_url }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Information URL</td>
+                    <td class="data"><a href="{{ $plugin->info_url }}" target="_blank">{{ $plugin->info_url }}</td>
                 </tr>
                 <tr>
                     <td class="label">Category</td>
@@ -53,6 +65,7 @@
                 <table class="table table-striped">
                     <tr class="header">
                         <th>Commit</th>
+                        <th>Tag</th>
                         <th>Collection</th>
                         <th>Moodle Branch</th>
                     </tr>
@@ -61,9 +74,10 @@
                             <td class="data-column" valign="top">
                                 <a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a>
                             </td>
+                            <td>{{ $commit->tag }}</td>
                             @foreach($commit->collections as $key => $collection)
                                 @if($key)
-                                    </tr><tr><td></td>
+                                    </tr><tr><td></td><td></td>
                                 @endif
                                 <td class="data-column">
                                     <a href="/collections/{{ $collection->id }}">
@@ -76,13 +90,6 @@
                     @endforeach
                 </table>
             @endif
-
-            <div class="control">
-                <a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">Edit</a>
-                <a href="/commits/create/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">New Commit</a>
-                <a href="/plugins" class="button is-text btn btn-primary mb-3">Back</a>
-            </div>
-
         </div>
     </div>
 @endsection

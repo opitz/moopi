@@ -16,7 +16,7 @@ foreach ($collection->commits as $commit) {
     $row = array(
         $commit->plugin->title,
         $commit->plugin->install_path,
-        $commit->plugin->github_url,
+        $commit->plugin->repository_url,
         $commit->plugin->developer,
         $commit->plugin->version,
         $commit->tag,

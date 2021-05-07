@@ -70,13 +70,13 @@ class PageController extends Controller
 
                     // Insert to MySQL database
                     foreach($importData_arr as $importData){
-                        $github_url = $importData[2];
-                        $plugins = Plugin::where('github_url', $github_url)->get();
+                        $repository_url = $importData[2];
+                        $plugins = Plugin::where('repository_url', $repository_url)->get();
                         if ($plugins->count() == 0) {
                             $plugin = Plugin::create([
                                 'title' => $importData[0],
                                 'install_path' => $importData[1],
-                                'github_url' => $importData[2],
+                                'repository_url' => $importData[2],
                                 'developer' => $importData[3],
                             ]);
                         } else {

@@ -71,28 +71,6 @@ class CollectionController extends Controller
             'collection' => Collection::with('commits')->find($id)
         ]);
     }
-    public function show2($id)
-    {
-        $collection = Collection::with(['commits','commits.plugin'])->find($id);
-//        $collection = Collection::with(['commits' => function ($q) {
-//            $q->orderBy('install_path', 'asc');
-//        }])->find($id);
-        return view('collections.show', [
-            'collection' => $collection
-        ]);
-    }
-    public function show1($id)
-    {
-
-        $collection = Collection::find($id);
-        $collection->load(['commits', 'commits.plugin' => function ($q) {
-            $q->orderBy('install_path', 'desc');
-        }]);
-        ddd($collection);
-        return view('collections.show', [
-            'collection' => $collection
-        ]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -224,13 +202,13 @@ class CollectionController extends Controller
         $used_plugins = [];
         $unused_plugins = [];
         foreach($collection->commits as $commit) {
-            $used_plugins[] = $commit->plugin->github_url;
+            $used_plugins[] = $commit->plugin->repository_url;
         }
 
         $plugins = Plugin::all();
         foreach ($plugins as $plugin) {
             // Check if the plugin is already used
-            if(!in_array($plugin->github_url,$used_plugins)) {
+            if(!in_array($plugin->repository_url,$used_plugins)) {
                 $unused_plugins[] = $plugin;
             }
         }

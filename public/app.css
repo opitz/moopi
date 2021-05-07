@@ -33,6 +33,7 @@ td.data-column {
 td.label {
     font-weight: bold;
     color: #005a9a;
+    width: 10%;
 }
 
 td.commit {

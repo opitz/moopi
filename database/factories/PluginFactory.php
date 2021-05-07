@@ -23,7 +23,7 @@ class PluginFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'github_url' => $this->faker->url(),
+            'repository_url' => $this->faker->url(),
             'developer' => $this->faker->name(),
             'install_path' => $this->faker->filePath(),
             'wiki_url' => $this->faker->url(),

@@ -97,13 +97,13 @@ class DataController extends Controller
                 $i++;
                 continue;
             }
-            $github_url = $importData[2];
-            $plugins = Plugin::where('github_url', $github_url)->get(); // Check if the plugin exists.
+            $repository_url = $importData[2];
+            $plugins = Plugin::where('repository_url', $repository_url)->get(); // Check if the plugin exists.
             if ($plugins->count() == 0) {
                 $plugin = Plugin::create([
                     'title' => $importData[0],
                     'install_path' => $importData[1],
-                    'github_url' => $importData[2],
+                    'repository_url' => $importData[2],
                     'developer' => $importData[3],
                 ]);
             } else {
@@ -150,13 +150,13 @@ class DataController extends Controller
             }
 
             // Check if the Plugin record already exists and create one if not
-            $github_url = $importData[2];
-            $plugins = Plugin::where('github_url', $github_url)->get();
+            $repository_url = $importData[2];
+            $plugins = Plugin::where('repository_url', $repository_url)->get();
             if ($plugins->count() == 0) {
                 $plugin = Plugin::create([
                     'title' => $importData[0],
                     'install_path' => $importData[1],
-                    'github_url' => $importData[2],
+                    'repository_url' => $importData[2],
                     'developer' => $importData[3],
                 ]);
             } else {
@@ -243,7 +243,7 @@ class DataController extends Controller
                 $row = array(
                     $commit->plugin->title,
                     $commit->plugin->install_path,
-                    $commit->plugin->github_url,
+                    $commit->plugin->repository_url,
                     $commit->plugin->developer,
                     $commit->plugin->version,
                     $commit->tag,
@@ -280,7 +280,7 @@ class DataController extends Controller
                 $row = array(
                     $commit->plugin->title,
                     $commit->plugin->install_path,
-                    $commit->plugin->github_url,
+                    $commit->plugin->repository_url,
                     $commit->plugin->developer,
                     $commit->plugin->version,
                     $commit->tag,

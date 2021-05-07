@@ -41,18 +41,22 @@ class PluginController extends Controller
         // Validation
         request()->validate([
            'title' => 'required',
-           'github_url' => 'required',
+           'repository_url' => 'required',
            'install_path' => 'required'
         ]);
         // Clean up
         $plugin = new Plugin();
         $plugin->title = request('title');
-        $plugin->github_url = request('github_url');
+        $plugin->repository_url = request('repository_url');
         $plugin->developer = request('developer');
         $plugin->install_path = request('install_path');
         $plugin->wiki_url = request('wiki_url');
         $plugin->category_id = request('category_id');
         $plugin->description = request('description');
+        $plugin->info_url = request('info_url');
+        $plugin->requested_by = request('requested_by');
+        $plugin->requester = request('requester');
+        $plugin->year_added = request('year_added');
         $plugin->save();
 
         return redirect('/plugins');
@@ -94,16 +98,20 @@ class PluginController extends Controller
         // Validation
         request()->validate([
             'title' => 'required',
-            'github_url' => 'required',
+            'repository_url' => 'required',
             'install_path' => 'required'
         ]);
         $plugin->title = request('title');
-        $plugin->github_url = request('github_url');
+        $plugin->repository_url = request('repository_url');
         $plugin->developer = request('developer');
         $plugin->install_path = request('install_path');
         $plugin->wiki_url = request('wiki_url');
         $plugin->category_id = request('category_id');
         $plugin->description = request('description');
+        $plugin->info_url = request('info_url');
+        $plugin->requested_by = request('requested_by');
+        $plugin->requester = request('requester');
+        $plugin->year_added = request('year_added');
         $plugin->save();
 
         return redirect("/plugins/$plugin->id");
