@@ -14,15 +14,21 @@
                         <td><input class="form-control" type="text" name="name" id="name"></td>
                     </tr>
                     <tr>
-                        <td width="10%"><label class="moodle_branch" for="moodle_branch">Moodle Branch</label></td>
-                        <td><input class="form-control" type="text" name="moodle_branch" id="moodle_branch"></td>
+                        <td class="label" for="branch" width="10%">Moodle Branch</td>
+                        <td>
+                            <select name="branch_id" id="branch_id">
+                                @foreach($branches as $branch)
+                                    <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                                @endforeach
+                            </select>
+                        </td>
                     </tr>
                 </table>
-
+                <div><br></div>
                 <div class="field is-grouped">
                     <div class="control">
                         <button class="button is-link btn btn-primary mb-3" type="submit">Submit</button>
-                        <a href="/collections" class="button is-text btn mb-3">Cancel</a>
+                        <a href="/collections" class="butto is-text btn mb-3">Cancel</a>
                     </div>
                 </div>
             </form>

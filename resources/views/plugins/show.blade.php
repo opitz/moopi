@@ -7,11 +7,15 @@
 
             <table class="table">
                 <tr>
-                    <td class="label" width="10%">Title</td>
+                    <td class="label">Title</td>
                     <td class="data">{{ $plugin->title }}</td>
                 </tr>
                 <tr>
-                    <td class="label">GitHub</td>
+                    <td class="label">Description</td>
+                    <td class="data">{{ $plugin->description }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Repository</td>
                     <td class="data">{{ $plugin->github_url }}</td>
                 </tr>
                 <tr>
@@ -31,39 +35,47 @@
                     <td class="data">{{ $plugin->category_id }}</td>
                 </tr>
                 <tr>
-                    <td class="label">Description</td>
-                    <td class="data">{{ $plugin->description }}</td>
+                    <td class="label">Requested by</td>
+                    <td class="data">{{ $plugin->requested_by }}</td>
                 </tr>
-                @if($plugin->commits->count())
-                    <tr>
-                        <td class="label">Commits:</td>
-                        <td class="data">
-                            <table border="1">
-                                @foreach($plugin->commits as $commit)
-                                    <tr border="1">
-                                        <td class="data-column" valign="top"><a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a></td>
-                                        <td class="data-column">
-                                            <table border="1">
-                                                @foreach($commit->collections as $collection)
-                                                    <tr>
-                                                        <td class="data-column">{{ $collection->name }}</td>
-                                                    </tr>
-                                                @endforeach
-                                            </table>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </table>
-                            <ul>
-                                @foreach($plugin->commits as $commit)
-                                    <li><a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a></li>
-                                @endforeach
-                            </ul>
-                        </td>
-                    </tr>
-                @endif
+                <tr>
+                    <td class="label">Requester</td>
+                    <td class="data">{{ $plugin->requester }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Year Added</td>
+                    <td class="data">{{ $plugin->year_added }}</td>
+                </tr>
 
             </table>
+
+            @if($plugin->commits->count())
+                <table class="table table-striped">
+                    <tr class="header">
+                        <th>Commit</th>
+                        <th>Collection</th>
+                        <th>Moodle Branch</th>
+                    </tr>
+                    @foreach($plugin->commits as $commit)
+                        <tr>
+                            <td class="data-column" valign="top">
+                                <a href="/commits/{{ $commit->id }}">{{ $commit->commit_id }}</a>
+                            </td>
+                            @foreach($commit->collections as $key => $collection)
+                                @if($key)
+                                    </tr><tr><td></td>
+                                @endif
+                                <td class="data-column">
+                                    <a href="/collections/{{ $collection->id }}">
+                                        {{ $collection->name }}
+                                    </a>
+                                </td>
+                                <td>{{ $collection->branch->name }}</td>
+                            @endforeach
+                        </tr>
+                    @endforeach
+                </table>
+            @endif
 
             <div class="control">
                 <a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">Edit</a>

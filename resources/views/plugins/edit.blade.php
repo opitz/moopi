@@ -46,7 +46,7 @@
                 <div class="field is-grouped">
                     <div class="control">
                         <button class="button is-link btn btn-primary mb-3" type="submit">Submit</button>
-                        <a href="/plugins" class="button is-text btn mb-3">Cancel</a>
+                        <a href="/plugins" class="button0 is-text btn mb-3">Cancel</a>
                     </div>
                 </div>
             </form>

@@ -5,7 +5,7 @@
         <div id="page" class="container">
             <h2>Collections</h2>
 
-            <table>
+            <table class="table table-striped">
                 <tr>
                     <th class="w150">Collection</th>
                     <th class="w250">Updated at</th>
@@ -20,8 +20,10 @@
                         <td class="data-column">{{ $collection->branch->name }}</td>
                         <td class="data-column">{{ $collection->commits->count() }}</td>
                         <td>
+                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-primary mb-0">Duplicate</a>
+                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-primary mb-0">Add</a>
+                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-primary mb-0">Edit</a>
                             <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-primary mb-0">Export</a>
-                            <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-primary mb-0">Delete</a>
                         </td>
                     </tr>
                 @endforeach

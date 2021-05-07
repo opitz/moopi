@@ -16,7 +16,7 @@ class PluginController extends Controller
     {
         //
         return view('plugins.index', [
-            'plugins' => Plugin::all()
+            'plugins' => Plugin::with('commits')->get()
         ]);
     }
 

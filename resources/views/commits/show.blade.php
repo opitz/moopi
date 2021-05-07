@@ -22,6 +22,24 @@
                     <td class="label">Version</td>
                     <td class="data">{{ $commit->version }}</td>
                 </tr>
+                <tr>
+                    <td class="label">Used in</td>
+                    <td>
+                        <table class="table table-striped">
+                            <tr class="header">
+                                <th>Collection</th>
+                                <th>Moodle Branch</th>
+                            </tr>
+                            @foreach($commit->collections->sortBy('name') as $collection)
+                                <tr>
+                                    <td><a href="/collections/{{ $collection->id }}">{{ $collection->name }}</a></td>
+                                    <td>{{ $collection->branch->name }}</td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </td>
+                </tr>
+
             </table>
         </div>
     </div>

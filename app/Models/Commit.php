@@ -16,4 +16,7 @@ class Commit extends Model
     public function collections() {
         return $this->belongsToMany(Collection::class,'collection_commits');
     }
+    public function hasCollection($collection) {
+        return $this->collections->contains($collection);
+    }
 }

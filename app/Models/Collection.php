@@ -13,7 +13,6 @@ class Collection extends Model
     public function commits() {
         // Laravel Relationship Types:
         // hasOne, hasMany, belongsTo, belongsToMany
-//        die('wtff?');
         return $this->belongsToMany(Commit::class,'collection_commits');
     }
 

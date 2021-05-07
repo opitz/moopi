@@ -1,5 +1,5 @@
 Name,Path,Repository,Developer,Version,Tag,Commit
-Moodle,core,,,3.9.6+ (Build: 20210413),3.9.6+ (Build: 20210413),
+Moodle core,/,git@github.com:moodle/moodle.git,,3.9.6+ (Build: 20210413),MOODLE_39_STABLE,
 Merge user accounts,admin/tool/mergeusers,git@github.com:ndunand/moodle-tool_mergeusers.git,,2019082000,master,873a0173abe6583bef8251b577dab860d9168cac
 CAS server (SSO) with external database,auth/cas_db,git@github.com:ULCC-QMUL/moodle-auth_cas_db.git,,2016012600,master,b6ef8be3c99a8dbe81c1de94e264e553eca1ba44
 External database (sync to other),auth/dbsyncother,git@github.com:ULCC-QMUL/moodle-auth_dbsyncother2.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2018050900,MISCOMMON,adcc71102569a837c7dfb8f36695a86bae244741
@@ -50,7 +50,7 @@ Topics (QMUL),course/format/qmultopics,git@github.com:ULCC-QMUL/moodle-course_fo
 Weekly format (QMUL),course/format/qmulweeks,git@github.com:ULCC-QMUL/moodle-course_format_qmulweeks.git,1999 onwards Martin Dougiamas (http://dougiamas.com),2019011800,dev,f500421ab301e6ef0577279261ab5ad9ee7301bf
 Collapsed Topics,course/format/topcoll,git@github.com:ULCC-QMUL/moodle-format_topcoll.git,&copy; 2009-onwards G J Barnard in respect to modifications of standard topics format.,2018121902,QMU-develop-36,587e75381e576133f78fdaa0b98db29874d39ee5
 Topics2 format,course/format/topics2,git@github.com:opitz/moodle-format_topics2.git,Matthias Opitz (opitz@qmx.de),2019041100,MOODLE_39_STABLE,daf5643863dd862db09ba1f7699bd32dd4807d9e
-Weekly2 format,course/format/weeks2,git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git,2020 Matthias Opitz (opitz@qmx.de),2019041100,MOODLE_38_STABLE,95a37e838b474334b7ee2501b757a4fbc3d1f3a2
+Weekly2 format,course/format/weeks2,git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git,2020 Matthias Opitz (opitz@qmx.de),2019041100,MOODLE_39_STABLE,fb89620d3c01b352bef51ef9f56ab5e9eb685acc
 Auto enrolment,enrol/auto,git@github.com:ULCC-QMUL/moodle-enrol_auto.git,,2017091400,master,1b82773c7d6d2f620ff56ddcf980de9f43b52cda
 Cohort category enrolment,enrol/cohortcateg,git@github.com:ULCC-QMUL/moodle-enrol_cohortcateg.git,,2018020600,master,71429f7ec431fe224374111635198dafcb2d928d
 $string[pluginname] = External database extended,enrol/databaseextended,git@github.com:ULCC-QMUL/moodle-enrol_databaseextended.git,2010 Petr Skoda {@link http://skodak.org},2013120301,master,543ab7993ead62e0fdbd1404fa49d2209bd84daf

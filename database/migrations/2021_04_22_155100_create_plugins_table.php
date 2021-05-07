@@ -18,8 +18,11 @@ class CreatePluginsTable extends Migration
             $table->string('title');
             $table->string('github_url');
             $table->string('developer')->nullable();
-            $table->string('install_path')->nullable();
+            $table->string('install_path');
             $table->string('wiki_url')->nullable();
+            $table->string('requested_by')->nullable();
+            $table->string('requester')->nullable();
+            $table->string('year_added')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();

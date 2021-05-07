@@ -10,6 +10,11 @@ class Plugin extends Model
     use HasFactory;
     protected $guarded = [];
 
+    protected static function booted()
+    {
+        static::addGlobalScope(fn ($query) => $query->orderBy('install_path'));
+    }
+
     public function category() {
         // Laravel Relationship Types:
         // hasOne, hasMany, belongsTo, belongsToMany

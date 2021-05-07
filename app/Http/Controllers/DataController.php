@@ -137,8 +137,10 @@ class DataController extends Controller
     protected function insertdata($filename,$importData_arr) {
         $i = 0;
         $moodle_branch = $importData_arr[1][5]; // The Moodle branch is in the 6th field of the 2nd row
+        $moodle_repository = $importData_arr[1][2]; // The Moodle repository is in the 3rd field of the 2nd row
+        $moodle_version = $importData_arr[1][4]; // The Moodle repository is in the 5th field of the 2nd row
         // Create a new collection
-        $collection = $this->create_collection($filename, $moodle_branch);
+        $collection = $this->create_collection($filename, $moodle_branch, $moodle_repository, $moodle_version);
 
         // Now import the data row by row
         foreach($importData_arr as $importData){
@@ -183,12 +185,14 @@ class DataController extends Controller
         return $collection;
     }
 
-    protected function create_collection($filename, $moodle_branch) {
+    protected function create_collection($filename, $moodle_branch, $moodle_repository, $moodle_version) {
         // Check if the branch exists and add it otherwise
         $branch = Branch::where('name',$moodle_branch);
         if ($branch->count() == 0) {
             $branch = Branch::create([
-                'name' => $moodle_branch
+                'name' => $moodle_branch,
+                'repository' => $moodle_repository,
+                'version' => $moodle_version
             ]);
         } else {
             $branch = ($branch->first());
@@ -196,6 +200,7 @@ class DataController extends Controller
 
         // Now create a Collection with that branch
         $name = $filename;
+        $name = pathinfo($filename)['filename'];
 
         // Check if no file exists with the $name otherwise add a number to it until you find an unused name
         $i = 0;
@@ -212,13 +217,15 @@ class DataController extends Controller
         return $collection;
     }
 
-    public function export($id) {
+    public function export0($id) {
         $collection = Collection::find($id);
         if ($collection->count() > 0) {
             // Open the file for writing
 //            $filename = '/Users/opitz/workbench/moopie/exporttest.csv';
 //            $file = fopen($filename, 'w+');
-            $filename = $collection->name . '.csv';
+            $filename = pathinfo($collection->name);
+            $filename = $filename['filename'] . '.csv';
+//            ddd($filename);
             // send data headers so browsers will download not display
             header('Content-Type: text/csv; charset=utf-8');
             header("Content-Disposition: attachment; filename=$filename");
@@ -229,6 +236,43 @@ class DataController extends Controller
             fputcsv($file, $columns);
             // export a row with information about core Moodle
             $moodle_data = array('Moodle', 'core', '', '', $collection->branch->name, $collection->branch->name, '');
+            fputcsv($file, $moodle_data);
+
+            // export all commits and their plugin informations
+            foreach ($collection->commits as $commit) {
+                $row = array(
+                    $commit->plugin->title,
+                    $commit->plugin->install_path,
+                    $commit->plugin->github_url,
+                    $commit->plugin->developer,
+                    $commit->plugin->version,
+                    $commit->tag,
+                    $commit->commit_id,
+                );
+                fputcsv($file, $row);
+            }
+            fclose($file);
+        }
+        // Redirect to index
+        return redirect("/collections/$collection->id");
+    }
+    public function export($id) {
+        $collection = Collection::find($id);
+        if ($collection->count() > 0) {
+            // Open the file for writing
+            $filename = pathinfo($collection->name);
+            $filename = '/Users/opitz/workbench/moopie/'.$filename['filename'] . '.csv';
+            $file = fopen($filename, 'w+');
+            // send data headers so browsers will download not display
+//            header('Content-Type: text/csv; charset=utf-8');
+//            header("Content-Disposition: attachment; filename=$filename");
+//            $file = fopen("php://output",'w');
+
+            // export a header
+            $columns = array('Name', 'Path', 'Repository', 'Developer', 'Version', 'Tag', 'Commit');
+            fputcsv($file, $columns);
+            // export a row with information about core Moodle
+            $moodle_data = array('Moodle', 'core', $collection->branch->repository, '', $collection->branch->version, $collection->branch->name, '');
             fputcsv($file, $moodle_data);
 
             // export all commits and their plugin informations

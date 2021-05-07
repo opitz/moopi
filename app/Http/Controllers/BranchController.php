@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Branch;
 use Illuminate\Http\Request;
 
-class BranchesController extends Controller
+class BranchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class BranchesController extends Controller
      */
     public function index() {
         $branches = Branch::all();
-        return view('branch.index',[
+        return view('branches.index',[
             'branches' => $branches
         ]);
     }
@@ -48,7 +48,7 @@ class BranchesController extends Controller
      */
     public function show(branches $branches)
     {
-        //
+        $branches = Branch::all();
     }
 
     /**

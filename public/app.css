@@ -1,11 +1,81 @@
-table td, table td * {
-    vertical-align: top;
+
+#header {
+    width: 100%;
+    padding-bottom: 0px;
+}
+
+#titlebar {
+    padding-bottom: 20px;
+}
+
+#top-menu {
+    padding-top: 20px;
+}
+
+a0 {
+    color: #005a9a;
+}
+
+.button {
+    background-color: #005a9a;
+}
+
+#top-menu a {
+    color: white;
+    text-decoration: none;
 }
 
 td.data-column {
     border-bottom: black;
     vertical-align: top;
 }
+
+td.label {
+    font-weight: bold;
+    color: #005a9a;
+}
+
+td.commit {
+    width: 150px;
+}
+
+#titlebar {
+    background-color: #005a9a;
+    color: white;
+}
+
+.titlearea {
+    padding: 20px;
+}
+
+td.title {
+    padding-right: 50px;
+    font-size: 28pt;
+}
+
+.title-actions {
+    padding-top: 20px;
+}
+
+#logo {
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#header-title {
+    font-size: xx-large;
+    padding-top: 10px;
+}
+
+#footer-version {
+    font-size: smaller;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -10px;
+    float: right;
+}
+
 
 .w100 {
     width: 100px;

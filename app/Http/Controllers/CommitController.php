@@ -16,7 +16,7 @@ class CommitController extends Controller
     public function index()
     {
         return view('commits.index', [
-            'commits' => Commit::all()
+            'commits' => Commit::with('collections')->get()
         ]);
     }
 
