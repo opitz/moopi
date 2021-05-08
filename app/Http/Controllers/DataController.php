@@ -217,7 +217,7 @@ class DataController extends Controller
         return $collection;
     }
 
-    public function export0($id) {
+    public function export($id) {
         $collection = Collection::find($id);
         if ($collection->count() > 0) {
             // Open the file for writing
@@ -235,7 +235,7 @@ class DataController extends Controller
             $columns = array('Name', 'Path', 'Repository', 'Developer', 'Version', 'Tag', 'Commit');
             fputcsv($file, $columns);
             // export a row with information about core Moodle
-            $moodle_data = array('Moodle', 'core', '', '', $collection->branch->name, $collection->branch->name, '');
+            $moodle_data = array('Moodle', 'core', $collection->branch->repository, '', $collection->branch->version, $collection->branch->name, '');
             fputcsv($file, $moodle_data);
 
             // export all commits and their plugin informations
@@ -256,7 +256,7 @@ class DataController extends Controller
         // Redirect to index
         return redirect("/collections/$collection->id");
     }
-    public function export($id) {
+    public function export1($id) {
         $collection = Collection::find($id);
         if ($collection->count() > 0) {
             // Open the file for writing
