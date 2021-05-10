@@ -28,6 +28,7 @@
                     <th>Install Path</th>
                     <th>Repository</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,7 +37,16 @@
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
                         <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
                         <td class="data-column">{{ $plugin->repository_url }}</td>
-                        <td><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-0">Edit</a></td>
+                        <td><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-sm mb-0">Edit</a></td>
+                        <td>
+                            <a
+                                href="/plugins/delete/{{ $plugin->id }}"
+                                class="button is-text btn btn-sm btn-danger mb-0"
+                                onclick="return confirm('Really delete plugin \'{{ $plugin->title }}\'?')"
+                            >
+                                Del
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

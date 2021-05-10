@@ -129,7 +129,8 @@ class PluginController extends Controller
      */
     public function destroy(Plugin $plugin)
     {
-        //
+        Plugin::find($plugin->id)->delete();
+        return redirect('/plugins');
     }
 
     /**

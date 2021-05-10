@@ -25,6 +25,10 @@ a0 {
     text-decoration: none;
 }
 
+a.btn-sm {
+    color: white;
+    text-decoration: none;
+}
 td.data-column {
     border-bottom: black;
     vertical-align: top;

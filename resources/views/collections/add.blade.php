@@ -65,6 +65,7 @@
 
                                 <td>
                                     <select name="plugin-{{ $plugin->id }}" id="plugin-{{ $plugin->id }}">
+                                        <option value="" >No specific commit</option>
                                         @foreach($plugin->commits as $commit)
                                             <option value="{{ $commit->id }}">
                                                 {{ substr($commit->commit_id,0,10).'...' }}
@@ -75,7 +76,7 @@
                                         @endforeach
                                     </select>
                                 </td>
-                                <td class="mark4attachment">
+                                <td class="mark4attachment" align="center">
                                     <input type="checkbox" name="attach[]" id="{{ $plugin->id }}" value="{{ $plugin->id }}">
                                 </td>
                             </tr>

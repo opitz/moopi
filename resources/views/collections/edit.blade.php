@@ -15,7 +15,13 @@
                             <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Add</a>
                             <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-primary mb-3 disabled">Edit</a>
                             <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Export</a>
-                            <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-danger mb-3">Delete</a>
+                            <a
+                                href="/collections/delete/{{ $collection->id }}"
+                                class="button is-text btn btn-danger mb-3"
+                                onclick="return confirm('Really deleting the entire collection \'{{ $collection->name }}\'?')"
+                            >
+                                Delete
+                            </a>
                         </td>
                         <td></td>
                     </tr>
@@ -62,6 +68,9 @@
 
                             <td>
                                 <select name="commit-{{ $commit->id }}" id="commit-{{ $commit->id }}">
+                                    <option value="" {{ ($pcommit->id == $commit->id ? 'selected':'') }}>No specific commit</option>
+
+
                                     @foreach($commit->plugin->commits as $pcommit)
                                         <option value="{{ $pcommit->id }}" {{ ($pcommit->id == $commit->id ? 'selected':'') }}>
                                             {{ substr($pcommit->commit_id,0,10).'...' }}
@@ -73,7 +82,7 @@
                                     @endforeach
                                 </select>
                             </td>
-                            <td class="mark4deletion">
+                            <td class="mark4deletion" align="center">
                                 <input type="checkbox" name="detach[]" id="{{ $commit->id }}" value="{{ $commit->id }}">
                             </td>
                         </tr>

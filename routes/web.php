@@ -51,6 +51,9 @@ Route::get('/plugins/edit/{plugin}',[PluginController::class,'edit']);
 // Show a single resource
 Route::get('/plugins/{plugin}',[PluginController::class,'show']);
 
+// Delete Plugin resource
+Route::get("plugins/delete/{plugin}",[PluginController::class,'destroy']);
+
 // Commits
 // Add a new Commit resource
 Route::get("/commits/create/{plugin_id}",[CommitController::class,'create']);

@@ -6,5 +6,13 @@ $( document ).ready(function() {
     });
 
     $('table').tablesorter();
+
+    $('input:checkbox').click(function(){
+        if ($('input:checkbox:checked').length) {
+            $('#delete-selected-commits').removeClass('disabled');
+        } else {
+            $('#delete-selected-commits').addClass('disabled');
+        }
+    })
 });
 

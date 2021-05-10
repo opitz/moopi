@@ -13,7 +13,7 @@
                 </tr>
             </table>
 
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                 <tr>
                     <th class="w150">Collection</th>
