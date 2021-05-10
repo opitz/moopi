@@ -14,6 +14,7 @@
             </table>
 
             <table class="table table-striped">
+                <thead>
                 <tr>
                     <th class="w150">Collection</th>
                     <th class="w250">Updated at</th>
@@ -21,6 +22,8 @@
                     <th class="w150 center">No. of Plugins</th>
                     <th></th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach ($collections as $collection)
                     <tr>
                         <td class="data-column"><a href="/collections/{{ $collection->id }}">{{ $collection->name }}</a></td>
@@ -35,6 +38,7 @@
                         </td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </div>

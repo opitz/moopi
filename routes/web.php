@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/list',[PluginController::class,'list']);
 
 Route::get('/test', function () {
     return view('collections.test');

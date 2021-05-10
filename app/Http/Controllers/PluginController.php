@@ -54,9 +54,11 @@ class PluginController extends Controller
         $plugin->category_id = request('category_id');
         $plugin->description = request('description');
         $plugin->info_url = request('info_url');
+        $plugin->plugin_url = request('plugin_url');
         $plugin->requested_by = request('requested_by');
         $plugin->requester = request('requester');
         $plugin->year_added = request('year_added');
+        $plugin->public = request('public');
         $plugin->save();
 
         return redirect('/plugins');
@@ -109,9 +111,11 @@ class PluginController extends Controller
         $plugin->category_id = request('category_id');
         $plugin->description = request('description');
         $plugin->info_url = request('info_url');
+        $plugin->plugin_url = request('plugin_url');
         $plugin->requested_by = request('requested_by');
         $plugin->requester = request('requester');
         $plugin->year_added = request('year_added');
+        $plugin->public = request('public');
         $plugin->save();
 
         return redirect("/plugins/$plugin->id");
@@ -126,5 +130,18 @@ class PluginController extends Controller
     public function destroy(Plugin $plugin)
     {
         //
+    }
+
+    /**
+     * List all plugins in a table to be inserted into other Web sites.
+     *
+     * @param  \App\Models\Plugin  $plugin
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        return view('plugins.list', [
+            'plugins' => Plugin::with('commits')->get()
+        ]);
     }
 }

@@ -9,9 +9,8 @@
 
                 <table class="table">
                     <tr class="titlearea">
-                        <td class="title">Edit Plugin</td>
-                        </td>
-                        <td></td>
+                        <td class="title" colspan="2">Edit Plugin</td>
+                        <td>Public <input type="checkbox" name="public" id="public" value="1" {{ ($plugin->public ? 'checked' : '') }}></td>
                     </tr>
 
                     <tr>
@@ -45,6 +44,10 @@
                         <td><input class="form-control" type="text" name="info_url" id="info_url" value="{{ $plugin->info_url }}"></td>
                     </tr>
                     <tr>
+                        <td class="label">Plugin URL</td>
+                        <td><input class="form-control" type="text" name="plugin_url" id="plugin_url" value="{{ $plugin->plugin_url }}"></td>
+                    </tr>
+                    <tr>
                         <td class="label">Category by</td>
                         <td><input class="form-control" type="text" name="category_id" id="category_id" value="{{ $plugin->category_id }}"></td>
                     </tr>
@@ -59,6 +62,10 @@
                     <tr>
                         <td class="label">Year Added</td>
                         <td><input class="form-control" type="text" name="year_added" id="year_added" value="{{ $plugin->year_added }}"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Public</td>
+                        <td><input type="checkbox" name="public0" id="public0" value="1" {{ ($plugin->public ? 'checked' : '') }}></td>
                     </tr>
                 </table>
 

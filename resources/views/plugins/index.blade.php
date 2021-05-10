@@ -21,13 +21,16 @@
             </table>
 
 
-            <table class="table table-striped">
+            <table id="plugin-index" class="table">
+                <thead>
                 <tr class="table-header">
                     <th>Name</th>
                     <th>Install Path</th>
                     <th>Repository</th>
                     <th></th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach ($plugins as $plugin)
                     <tr>
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
@@ -36,6 +39,7 @@
                         <td><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-0">Edit</a></td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
             <div>
                 <br>

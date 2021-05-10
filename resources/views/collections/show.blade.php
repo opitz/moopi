@@ -35,12 +35,15 @@
             </table>
 
             <table class="table">
+                <thead>
                 <tr>
                     <th>Plugin</th>
                     <th>Path</th>
                     <th>Commit ID</th>
                     <th>Tag</th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach($collection->commits as $commit)
                     <tr class="commit-row">
                         <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
@@ -49,6 +52,7 @@
                         <td class="data-column">{{ $commit->tag }}</td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </div>

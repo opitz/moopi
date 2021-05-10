@@ -45,38 +45,42 @@
                 </table>
 
                 <table class="table">
-                    <tr>
-                        <th>Plugin</th>
-                        <th>Path</th>
-                        <th>Commit ID (Tag)</th>
-                        <th>Add selected</th>
-                    </tr>
-                    @foreach($plugins as $plugin)
+                    <thead>
                         <tr>
-                            <td class="data-column">
-                                <a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a>
-                            </td>
-                            <td class="data-column install_path">
-                                <a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a>
-                            </td>
-
-                            <td>
-                                <select name="plugin-{{ $plugin->id }}" id="plugin-{{ $plugin->id }}">
-                                    @foreach($plugin->commits as $commit)
-                                        <option value="{{ $commit->id }}">
-                                            {{ substr($commit->commit_id,0,10).'...' }}
-                                            @if($commit->tag != '')
-                                                ({{ $commit->tag }})
-                                            @endif
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </td>
-                            <td class="mark4attachment">
-                                <input type="checkbox" name="attach[]" id="{{ $plugin->id }}" value="{{ $plugin->id }}">
-                            </td>
+                            <th>Plugin</th>
+                            <th>Path</th>
+                            <th>Commit ID (Tag)</th>
+                            <th>Add selected</th>
                         </tr>
-                    @endforeach
+                    </thead>
+                    <tbody>
+                        @foreach($plugins as $plugin)
+                            <tr>
+                                <td class="data-column">
+                                    <a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a>
+                                </td>
+                                <td class="data-column install_path">
+                                    <a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a>
+                                </td>
+
+                                <td>
+                                    <select name="plugin-{{ $plugin->id }}" id="plugin-{{ $plugin->id }}">
+                                        @foreach($plugin->commits as $commit)
+                                            <option value="{{ $commit->id }}">
+                                                {{ substr($commit->commit_id,0,10).'...' }}
+                                                @if($commit->tag != '')
+                                                    ({{ $commit->tag }})
+                                                @endif
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td class="mark4attachment">
+                                    <input type="checkbox" name="attach[]" id="{{ $plugin->id }}" value="{{ $plugin->id }}">
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
 
                 <div class="field is-grouped">

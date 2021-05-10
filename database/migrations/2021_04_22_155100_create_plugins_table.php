@@ -26,6 +26,8 @@ class CreatePluginsTable extends Migration
             $table->string('year_added')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->longText('description')->nullable();
+            $table->string('plugin_url')->nullable();
+            $table->boolean('public')->nullable();
             $table->timestamps();
         });
     }

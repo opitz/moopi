@@ -11,7 +11,11 @@
                         <a href="/commits/create/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">New Commit</a>
                         <a href="/plugins" class="button is-text btn btn-primary mb-3">Back</a>
                     </td>
-                    <td></td>
+                    <td>
+                        @if($plugin->public)
+                            public
+                        @endif
+                    </td>
                 </tr>
 
                 <tr>
@@ -41,6 +45,11 @@
                 <tr>
                     <td class="label">Information URL</td>
                     <td class="data"><a href="{{ $plugin->info_url }}" target="_blank">{{ $plugin->info_url }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Plugin URL</td>
+                    <td><input class="form-control" type="text" name="plugin_url" id="plugin_url" value="{{ $plugin->plugin_url }}"></td>
+                    <td class="data"><a href="{{ $plugin->plugin_url }}" target="_blank">{{ $plugin->plugin_url }}</td>
                 </tr>
                 <tr>
                     <td class="label">Category</td>

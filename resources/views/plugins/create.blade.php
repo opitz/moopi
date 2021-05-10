@@ -54,6 +54,10 @@
                         <td><input class="form-control" type="text" name="info_url" id="info_url"></td>
                     </tr>
                     <tr>
+                        <td class="label">Plugin URL</td>
+                        <td><input class="form-control" type="text" name="plugin_url" id="plugin_url"></td>
+                    </tr>
+                    <tr>
                         <td class="label">Category</td>
                         <td><input class="form-control" type="text" name="category_id" id="category_id"></td>
                     </tr>

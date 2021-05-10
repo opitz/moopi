@@ -46,12 +46,15 @@
                 </table>
 
                 <table class="table">
+                    <thead>
                     <tr>
                         <th>Plugin</th>
                         <th>Path</th>
                         <th>Commit ID (Tag)</th>
                         <th>Delete selected</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     @foreach($collection->commits as $commit)
                         <tr>
                             <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
@@ -63,7 +66,7 @@
                                         <option value="{{ $pcommit->id }}" {{ ($pcommit->id == $commit->id ? 'selected':'') }}>
                                             {{ substr($pcommit->commit_id,0,10).'...' }}
                                             @if($pcommit->tag != '')
-                                                 ({{ $pcommit->tag }})
+                                                ({{ $pcommit->tag }})
                                             @endif
 
                                         </option>
@@ -75,6 +78,7 @@
                             </td>
                         </tr>
                     @endforeach
+                    </tbody>
                 </table>
 
                 <div class="field is-grouped">
