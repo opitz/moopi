@@ -7,7 +7,7 @@
                 <tr class="titlearea">
                     <td class="title">Collections</td>
                     <td class="title-actions">
-                        <a href="/upload" class="button is-text btn btn-primary mb-3">Upload Collection</a>
+                        <a href="/upload" id="upload_collection" class="button is-text btn btn-primary mb-3">Upload Collection</a>
                         <a href="/collections/create" class="button is-text btn btn-primary mb-3">Add new Collection</a>
                     </td>
                 </tr>
