@@ -3,9 +3,23 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h2>Commit</h2>
-
             <table class="table">
+                <tr class="titlearea">
+                    <td class="title">Commit</td>
+                    <td class="title-actions">
+                        <a href="/commits/add/{{ $commit->id }}" class="button is-text btn-sm">Add</a>
+                        <a href="/commits/edit/{{ $commit->id }}" class="button is-text btn-sm">Edit</a>
+                        <a
+                            href="/commits/delete/{{ $commit->id }}"
+                            class="button is-text btn-sm btn-danger mb-3"
+                            onclick="return confirm('Really deleting the commit ID \'{{ substr($commit->commit_id,0,10).'...' }}\'?')"
+                        >
+                            Delete
+                        </a>
+                    </td>
+                    <td></td>
+                </tr>
+
                 <tr>
                     <td class="label" width="10%">Plugin</td>
                     <td class="data"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
