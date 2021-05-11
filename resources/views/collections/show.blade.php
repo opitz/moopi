@@ -44,10 +44,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($collection->plugins as $plugin)
+                @foreach($collection->commits as $commit)
                     <tr class="commit-row">
-                        <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
-                        <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
+                        <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
+                        <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
                         <td class="data-column"><a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,10).'...' }}</a></td>
                         <td class="data-column">{{ $commit->tag }}</td>
                     </tr>

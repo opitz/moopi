@@ -40,9 +40,6 @@ class CreateCommitsTable extends Migration
             $table->unique(['collection_id', 'commit_id']);
 
             // Foreign key restraints
-//            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
-//            $table->foreign('commit_id')->references('id')->on('commits')->onDelete('cascade');
-
             $table->foreign('collection_id')
                 ->references('id')
                 ->on('collections')
