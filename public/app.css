@@ -1,4 +1,25 @@
-
+#waiting {
+    position: fixed;
+    top: 40%;
+    left: 38%;
+    max-width: 300px;
+    margin: auto;
+    background-color: white;
+    border-style: solid;
+    border-color: #005a9a;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    display: none;
+    ;
+}
+#tapping {
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
 #header {
     width: 100%;
     padding-bottom: 0px;

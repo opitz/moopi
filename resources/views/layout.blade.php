@@ -19,9 +19,18 @@
                 <a class="button btn-sm" href="/plugins">Plugins</a>
                 <a class="button btn-sm" href="/commits">Commits</a>
                 <a class="button btn-sm" href="/branches">Branches</a>
+                <a id="testbutton" class="button btn-sm" href="#">Test</a>
             </div>
         </div>
     </div>
+
+    <div id="waiting" class="hiding">
+        <img id="tapping" src="/tapping.gif">
+        <p>
+            Please wait while we import the data.
+        </p>
+    </div>
+
     <hr>
 
     @yield('content')

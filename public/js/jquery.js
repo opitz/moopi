@@ -1,8 +1,12 @@
 $( document ).ready(function() {
     console.log( "jQuery is ready!" );
 
-    $("#testbutton").click(function(){
+    $('#testbutton').click(function(){
         alert("A testbutton was clicked.");
+    });
+
+    $('#import_data').click(function(){
+        $('#waiting').show();
     });
 
     $('table').tablesorter();
