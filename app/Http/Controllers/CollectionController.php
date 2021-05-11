@@ -184,13 +184,16 @@ class CollectionController extends Controller
         $newcollection = $collection->replicate();
         $newcollection->name = $newcollection->name.' (copy)';
         $newcollection->save();
-        // Clone the commits as well
+        // Clone the plugins and commits as well
+        foreach ($collection->plugins as $plugin) {
+            $newcollection->plugins()->attach($plugin);
+        }
         foreach ($collection->commits as $commit) {
             $newcollection->commits()->attach($commit);
         }
 
 
-        return redirect("/collections/$newcollection->id");
+        return redirect("/collections/edit/$newcollection->id");
     }
 
     /**

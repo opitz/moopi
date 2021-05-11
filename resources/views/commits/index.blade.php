@@ -7,16 +7,21 @@
                 <tr class="titlearea">
                     <td id="title" class="title">Commits</td>
                     <td class="title-actions">
-                        <a href="/commits/create" class="button is-text btn btn-primary mb-0">Add new Commit</a>
+                        <a href="/commits/create" class="button is-text btn btn-sm">Add new Commit</a>
                         <a
                             id="delete-selected-commits"
                             href="/commits/delete_selected"
-                            class="button is-text btn btn-danger mb-0 disabled"
+                            class="button is-text btn btn-sm btn-danger disabled"
                             onclick="return confirm('Really delete selected commits?')"
                             disabled
                         >
                             Delete
                         </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data">
+                        <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
                     </td>
                 </tr>
             </table>
@@ -29,6 +34,7 @@
                         <th>Path</th>
                         <th>Commit ID</th>
                         <th>Tag</th>
+                        <th>Version</th>
                         <th>Collection</th>
                         <th>Delete selected</th>
                     </tr>
@@ -37,11 +43,12 @@
                     @foreach ($commits as $commit)
                         <tr scope="row">
                             <td class="data-column">{{ $commit->plugin->title }}</td>
-                            <td class="data-column">{{ $commit->plugin->install_path }}</td>
+                            <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
                             <td class="data-column w150">
                                 <a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,8).'...' }}</a>
                             </td>
                             <td class="data-column">{{ $commit->tag }}</td>
+                            <td class="data-column">{{ $commit->version }}</td>
                             <td>
                                 <table>
                                     @foreach($commit->collections as $collection)
