@@ -57,6 +57,10 @@ Route::get("plugins/delete/{plugin}",[PluginController::class,'destroy']);
 // Commits
 // Add a new Commit resource
 Route::get("/commits/create/{plugin_id}",[CommitController::class,'create']);
+// Delete a new Commit resource
+Route::get("/commits/delete/{commit}",[CommitController::class,'destroy']);
+// Delete seleted Commit resources
+Route::get("/commits/delete_seleted",[CommitController::class,'destroy_selected']);
 // Store the Commit resource
 Route::post("/commits",[CommitController::class,'store']);
 Route::get('/commits',[CommitController::class,'index']);
