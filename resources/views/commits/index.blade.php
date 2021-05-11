@@ -5,7 +5,7 @@
         <div id="page" class="container">
             <table class="table">
                 <tr class="titlearea">
-                    <td class="title">Commits</td>
+                    <td id="title" class="title">Commits</td>
                     <td class="title-actions">
                         <a href="/commits/create" class="button is-text btn btn-primary mb-0">Add new Commit</a>
                         <a

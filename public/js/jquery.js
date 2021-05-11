@@ -18,5 +18,11 @@ $( document ).ready(function() {
             $('#delete-selected-commits').addClass('disabled');
         }
     })
+
+    $('.top-menu').each(function() {
+        if ($(this).html().indexOf($('#title').html()) > -1) {
+            $(this).css('font-weight', 'bold');
+        }
+    })
 });
 

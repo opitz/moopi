@@ -9,13 +9,13 @@
 
                 <table class="table">
                     <tr class="titlearea">
-                        <td class="title">Collection</td>
+                        <td id="title" class="title">Collection</td>
                         <td class="title-actions">
-                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Duplicate</a>
-                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-primary mb-3 disabled">Add</a>
-                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Edit</a>
-                            <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Export</a>
-                            <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-danger mb-3">Delete</a>
+                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-sm">Duplicate</a>
+                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-sm disabled">Add</a>
+                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-sm">Edit</a>
+                            <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-sm">Export</a>
+                            <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-sm">Delete</a>
                         </td>
                         <td></td>
                     </tr>

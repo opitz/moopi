@@ -5,12 +5,12 @@
         <div id="page" class="container">
             <table class="table">
                 <tr class="titlearea">
-                    <td class="title">Collection</td>
+                    <td id="title" class="title">Collection</td>
                     <td class="title-actions">
-                        <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn-sm">Duplicate</a>
-                        <a href="/collections/add/{{ $collection->id }}" class="button is-text btn-sm">Add</a>
-                        <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn-sm">Edit</a>
-                        <a href="/collections/export/{{ $collection->id }}" class="button is-text btn-sm btn-success">Export</a>
+                        <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-sm">Duplicate</a>
+                        <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-sm">Add</a>
+                        <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-sm">Edit</a>
+                        <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-sm btn-success">Export</a>
                     </td>
                     <td></td>
                 </tr>
@@ -44,12 +44,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($collection->commits as $commit)
-                    <tr class="commit-row">
-                        <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
-                        <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
-                        <td class="data-column"><a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,10).'...' }}</a></td>
-                        <td class="data-column">{{ $commit->tag }}</td>
+                @foreach($collection->plugins as $plugin)
+                    <tr class="plugin-row">
+                        <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
+                        <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
+                        @foreach($collection->commits as $commit)
+                            @if($plugin->hasCommit($commit->id))
+                                <td class="data-column"><a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,10).'...' }}</a></td>
+                                <td class="data-column">{{ $commit->tag }}</td>
+                            @endif
+                        @endforeach
                     </tr>
                 @endforeach
                 </tbody>

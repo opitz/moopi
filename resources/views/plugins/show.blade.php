@@ -5,11 +5,18 @@
         <div id="page" class="container">
             <table class="table">
                 <tr class="titlearea">
-                    <td class="title">Plugin</td>
+                    <td id="title" class="title">Plugin</td>
                     <td class="title-actions">
-                        <a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">Edit</a>
-                        <a href="/commits/create/{{ $plugin->id }}" class="button is-text btn btn-primary mb-3">New Commit</a>
-                        <a href="/plugins" class="button is-text btn btn-primary mb-3">Back</a>
+                        <a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn-sm">Edit</a>
+                        <a href="/commits/create/{{ $plugin->id }}" class="button is-text btn-sm">New Commit</a>
+                        <a href="/plugins" class="button is-text btn-sm">Back</a>
+                        <a
+                            href="/plugins/delete/{{ $plugin->id }}"
+                            class="button is-text btn-sm btn-danger"
+                            onclick="return confirm('Really deleting the plugin \'{{ $plugin->title }}\' and all its commits?')"
+                        >
+                            Delete
+                        </a>
                     </td>
                     <td>
                         @if($plugin->public)
@@ -48,7 +55,6 @@
                 </tr>
                 <tr>
                     <td class="label">Plugin URL</td>
-                    <td><input class="form-control" type="text" name="plugin_url" id="plugin_url" value="{{ $plugin->plugin_url }}"></td>
                     <td class="data"><a href="{{ $plugin->plugin_url }}" target="_blank">{{ $plugin->plugin_url }}</td>
                 </tr>
                 <tr>

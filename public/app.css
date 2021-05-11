@@ -30,7 +30,7 @@
 }
 
 td.title-actions {
-    padding-top: 25px;
+    padding-top: 20px;
 }
 
 #top-menu {
@@ -43,6 +43,11 @@ a0 {
 
 .button {
     background-color: #005a9a;
+}
+
+#top-menu .button {
+    background-color: white;
+    color: #005a9a;
 }
 
 #top-menu a {

@@ -9,6 +9,7 @@
 
                 <table class="table">
                     <tr class="titlearea">
+                        <td id="title" style="display: none;">Plugin</td>
                         <td class="title" colspan="2">Edit Plugin</td>
                         <td>Public <input type="checkbox" name="public" id="public" value="1" {{ ($plugin->public ? 'checked' : '') }}></td>
                     </tr>

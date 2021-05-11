@@ -3,12 +3,15 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h2>New Plugin</h2>
-
             <form method="POST" action="/plugins">
                 @csrf
+                <table class="table">
+                    <tr class="titlearea">
+                        <td id="title" style="display: none;">Plugin</td>
+                        <td class="title" colspan="2">New Plugin</td>
+                        <td>Public <input type="checkbox" name="public" id="public" value="1"></td>
+                    </tr>
 
-                <table>
                     <tr>
                         <td class="label">Title</td>
                         <td><input

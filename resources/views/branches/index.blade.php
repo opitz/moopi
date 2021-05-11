@@ -7,6 +7,7 @@
 
             <table class="table table-striped">
                 <tr>
+                    <td id="title" style="display: none;">Branches</td>
                     <th>Name</th>
                     <th>Version</th>
                     <th>Repository</th>

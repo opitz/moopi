@@ -254,6 +254,30 @@ class DataController extends Controller
                     $commit->tag,
                     $commit->commit_id,
                 );
+//                fputcsv($file, $row);
+            }
+            // export all plugins and their commits informations
+            foreach ($collection->plugins as $plugin) {
+                $commit_version = '';
+                $commit_tag = '';
+                $commit_commit_id = '';
+                foreach ($plugin->commits as $pcommit) {
+                    if($collection->hasCommit($pcommit->id)) {
+                        $commit_version = $pcommit->version;
+                        $commit_commit_id = $pcommit->commit_id;
+                        $commit_tag = $pcommit->tag;
+                        break;
+                    }
+                }
+                $row = array(
+                    $plugin->title,
+                    $plugin->install_path,
+                    $plugin->repository_url,
+                    $plugin->developer,
+                    $commit_version,
+                    $commit_tag,
+                    $commit_commit_id,
+                );
                 fputcsv($file, $row);
             }
             fclose($file);

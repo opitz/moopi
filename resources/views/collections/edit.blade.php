@@ -9,15 +9,15 @@
 
                 <table class="table">
                     <tr class="titlearea">
-                        <td class="title">Collection</td>
+                        <td id="title" class="title">Collection</td>
                         <td class="title-actions">
-                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn-sm">Duplicate</a>
-                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn-sm">Add</a>
-                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn-sm disabled">Edit</a>
-                            <a href="/collections/export/{{ $collection->id }}" class="button is-text btn-sm">Export</a>
+                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-sm">Duplicate</a>
+                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-sm">Add</a>
+                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn-sm btn disabled">Edit</a>
+                            <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-sm btn-success">Export</a>
                             <a
                                 href="/collections/delete/{{ $collection->id }}"
-                                class="button is-text btn btn-danger mb-3"
+                                class="button is-text btn btn-sm btn-danger"
                                 onclick="return confirm('Really deleting the entire collection \'{{ $collection->name }}\'?')"
                             >
                                 Delete
@@ -44,7 +44,7 @@
                     </tr>
                     <tr>
                         <td class="label">No. of Plugins</td>
-                        <td id="plugins_number" class="data">{{ $collection->commits()->count() }}</td>
+                        <td id="plugins_number" class="data">{{ $collection->plugins()->count() }}</td>
                         <td class="data">
                             <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
                         </td>
@@ -57,22 +57,20 @@
                         <th>Plugin</th>
                         <th>Path</th>
                         <th>Commit ID (Tag)</th>
-                        <th>Delete selected</th>
+                        <th>Detach selected</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($collection->commits as $commit)
+                    @foreach($collection->plugins as $plugin)
                         <tr>
-                            <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
-                            <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
+                            <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
+                            <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
 
                             <td>
-                                <select name="commit-{{ $commit->id }}" id="commit-{{ $commit->id }}">
-                                    <option value="" {{ (!$commit->id ? 'selected':'') }}>No specific commit</option>
-
-
-                                    @foreach($commit->plugin->commits as $pcommit)
-                                        <option value="{{ $pcommit->id }}" {{ ($pcommit->id == $commit->id ? 'selected':'') }}>
+                                <select name="commit-{{ $plugin->id }}" id="commit-{{ $plugin->id }}">
+                                    <option value="">No specific commit</option>
+                                    @foreach($plugin->commits as $pcommit)
+                                        <option value="{{ $pcommit->id }}" {{ ($collection->hasPlugin($plugin->id) && $collection->hasCommit($pcommit->id) ? 'selected':'') }}>
                                             {{ substr($pcommit->commit_id,0,10).'...' }}
                                             @if($pcommit->tag != '')
                                                 ({{ $pcommit->tag }})
@@ -83,7 +81,7 @@
                                 </select>
                             </td>
                             <td class="mark4deletion" align="center">
-                                <input type="checkbox" name="detach[]" id="{{ $commit->id }}" value="{{ $commit->id }}">
+                                <input type="checkbox" name="detach[]" id="{{ $plugin->id }}" value="{{ $plugin->id }}">
                             </td>
                         </tr>
                     @endforeach

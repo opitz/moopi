@@ -5,7 +5,7 @@
         <div id="page" class="container">
             <table class="table">
                 <tr class="titlearea">
-                    <td class="title">Commit</td>
+                    <td id="title" class="title">Commit</td>
                     <td class="title-actions">
                         <a href="/commits/add/{{ $commit->id }}" class="button is-text btn-sm">Add</a>
                         <a href="/commits/edit/{{ $commit->id }}" class="button is-text btn-sm">Edit</a>

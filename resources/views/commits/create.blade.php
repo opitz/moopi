@@ -10,6 +10,7 @@
 
                 <table>
                     <tr>
+                        <td id="title" style="display: none;">Plugin</td>
                         <td width="10%"><label class="label" for="plugin_id">Plugin</label></td>
                         <td>
                             <input class="form-control" type="hidden" name="plugin_id" id="{{ $plugin->id }}" value="{{ $plugin->id }}">
@@ -33,7 +34,7 @@
                 <div class="field is-grouped">
                     <div class="control">
                         <button class="button is-link btn btn-primary mb-3" type="submit">Submit</button>
-                        <a href="/plugins/{{ $plugin->id }}" class="button is-text btn mb-3">Cancel</a>
+                        <a href="/plugins/{{ $plugin->id }}" class="button0 is-text btn mb-3">Cancel</a>
                     </div>
                 </div>
             </form>

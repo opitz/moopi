@@ -15,11 +15,10 @@
                 <div id="header-title"><img id="logo" src="/logo.png">MooSIS - Moodle Submodule Information System</div>
             </div>
             <div id="top-menu" class="container">
-                <a class="button btn-sm" href="/collections">Collections</a>
-                <a class="button btn-sm" href="/plugins">Plugins</a>
-                <a class="button btn-sm" href="/commits">Commits</a>
-                <a class="button btn-sm" href="/branches">Branches</a>
-                <a id="testbutton" class="button btn-sm" href="#">Test</a>
+                <a class="top-menu button btn-sm btn-outline" href="/collections">Collections</a>
+                <a class="top-menu button btn-sm" href="/plugins">Plugins</a>
+                <a class="top-menu button btn-sm" href="/commits">Commits</a>
+                <a class="top-menu button btn-sm" href="/branches">Branches</a>
             </div>
         </div>
     </div>

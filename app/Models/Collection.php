@@ -24,5 +24,14 @@ class Collection extends Model
     public function branch() {
         return $this->belongsTo(Branch::class);
     }
+
+    public function hasCommit($id) {
+        return $this->commits->contains($id);
+    }
+
+    public function hasPlugin($id) {
+        return $this->plugins->contains($id);
+    }
+
 }
 

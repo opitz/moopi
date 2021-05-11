@@ -28,4 +28,8 @@ class Plugin extends Model
     public function collections() {
         return $this->belongsToMany(Collection::class,'collection_plugins');
     }
+
+    public function hasCommit($id) {
+        return $this->commits->contains($id);
+    }
 }

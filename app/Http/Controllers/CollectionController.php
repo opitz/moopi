@@ -94,7 +94,7 @@ class CollectionController extends Controller
      * @param  \App\Models\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Collection $collection)
+    public function update0(Request $request, Collection $collection)
     {
         $collection->name = request('name');
         $collection->branch_id = request('branch_id');
@@ -109,6 +109,31 @@ class CollectionController extends Controller
         $marked4detachment = request("detach");
         if (isset($marked4detachment) && count($marked4detachment)) {
             $collection->commits()->detach($marked4detachment);
+            $collection->plugins()->detach($marked4detachment);
+        }
+
+        $collection->save();
+
+        return redirect("/collections/$collection->id");
+    }
+    public function update(Request $request, Collection $collection)
+    {
+        $collection->name = request('name');
+        $collection->branch_id = request('branch_id');
+        // Put all id's of related commits into an array and use it to sync all values
+        $commit_ids = [];
+        foreach ($collection->plugins as $plugin) {
+            if($cid = request("commit-$plugin->id")) {
+                $commit_ids[] = $cid;
+            }
+        }
+        $collection->commits()->sync($commit_ids);
+
+        // Detach all marked plugins and their commits
+        $marked4detachment = request("detach");
+        if (isset($marked4detachment) && count($marked4detachment)) {
+            $collection->commits()->detach($marked4detachment);
+            $collection->plugins()->detach($marked4detachment);
         }
 
         $collection->save();
@@ -121,10 +146,11 @@ class CollectionController extends Controller
         $collection->name = request('name');
         $collection->branch_id = request('branch_id');
 
-        // Attach all marked plugins through their commits
+        // Attach all marked plugins and their commits
         $marked4attachment = request("attach");
         if (isset($marked4attachment) && count($marked4attachment)) {
             $collection->plugins()->attach($marked4attachment);
+            $collection->commits()->attach($marked4attachment);
         }
 
 //        ddd($collection);
@@ -196,19 +222,39 @@ class CollectionController extends Controller
      * @param  \App\Models\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function add(Collection $collection)
+    public function add0(Collection $collection)
     {
         // Build an array of plugin github URLs to check against
         $used_plugins = [];
         $unused_plugins = [];
-        foreach($collection->commits as $commit) {
-            $used_plugins[] = $commit->plugin->repository_url;
+        foreach($collection->plugins as $plugin) {
+            $used_plugins[] = $plugin->repository_url;
         }
 
         $plugins = Plugin::all();
         foreach ($plugins as $plugin) {
             // Check if the plugin is already used
             if(!in_array($plugin->repository_url,$used_plugins)) {
+                $unused_plugins[] = $plugin;
+            }
+        }
+
+//        ddd($unused_plugins);
+
+        $branches = Branch::all();
+        return view('collections.add', [
+            'collection' => $collection,
+            'plugins' => $unused_plugins,
+            'branches' => $branches
+        ]);
+    }
+    public function add(Collection $collection)
+    {
+        $unused_plugins = [];
+        $plugins = Plugin::all();
+        foreach ($plugins as $plugin) {
+            // Check if the plugin is already used
+            if(!$collection->hasPlugin($plugin->id)) {
                 $unused_plugins[] = $plugin;
             }
         }
