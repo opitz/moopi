@@ -9,6 +9,7 @@ use App\Models\Branch;
 use App\Models\Collection;
 use App\Models\Commit;
 use App\Models\CollectionCommit;
+use App\Models\CollectionPlugin;
 use App\Models\Plugin;
 
 class DataController extends Controller
@@ -162,6 +163,10 @@ class DataController extends Controller
             } else {
                 $plugin = $plugins->first(); // else the plugin is the 1st (and only) member of the returned collection
             }
+            $cp = CollectionPlugin::create([
+                'collection_id' => $collection->id,
+                'plugin_id' => $plugin->id
+            ]);
 
             // Check if the Commit record already exists and create one if not
             $commit_id = $importData[6];

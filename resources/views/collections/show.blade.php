@@ -7,10 +7,10 @@
                 <tr class="titlearea">
                     <td class="title">Collection</td>
                     <td class="title-actions">
-                        <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Duplicate</a>
-                        <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Add</a>
-                        <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Edit</a>
-                        <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-success mb-3">Export</a>
+                        <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn-sm">Duplicate</a>
+                        <a href="/collections/add/{{ $collection->id }}" class="button is-text btn-sm">Add</a>
+                        <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn-sm">Edit</a>
+                        <a href="/collections/export/{{ $collection->id }}" class="button is-text btn-sm btn-success">Export</a>
                     </td>
                     <td></td>
                 </tr>
@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td class="label">No. of Plugins</td>
-                    <td id="plugins_number" class="data">{{ $collection->commits()->count() }}</td>
+                    <td id="plugins_number" class="data">{{ $collection->plugins()->count() }}</td>
                     <td class="data">
                         <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
                     </td>
@@ -44,10 +44,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($collection->commits as $commit)
+                @foreach($collection->plugins as $plugin)
                     <tr class="commit-row">
-                        <td class="data-column"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->title }}</a></td>
-                        <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
+                        <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
+                        <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
                         <td class="data-column"><a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,10).'...' }}</a></td>
                         <td class="data-column">{{ $commit->tag }}</td>
                     </tr>

@@ -11,10 +11,10 @@
                     <tr class="titlearea">
                         <td class="title">Collection</td>
                         <td class="title-actions">
-                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Duplicate</a>
-                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Add</a>
-                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-primary mb-3 disabled">Edit</a>
-                            <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-primary mb-3">Export</a>
+                            <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn-sm">Duplicate</a>
+                            <a href="/collections/add/{{ $collection->id }}" class="button is-text btn-sm">Add</a>
+                            <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn-sm disabled">Edit</a>
+                            <a href="/collections/export/{{ $collection->id }}" class="button is-text btn-sm">Export</a>
                             <a
                                 href="/collections/delete/{{ $collection->id }}"
                                 class="button is-text btn btn-danger mb-3"
@@ -68,7 +68,7 @@
 
                             <td>
                                 <select name="commit-{{ $commit->id }}" id="commit-{{ $commit->id }}">
-                                    <option value="" {{ ($pcommit->id == $commit->id ? 'selected':'') }}>No specific commit</option>
+                                    <option value="" {{ (!$commit->id ? 'selected':'') }}>No specific commit</option>
 
 
                                     @foreach($commit->plugin->commits as $pcommit)

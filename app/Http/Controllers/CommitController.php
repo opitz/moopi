@@ -97,6 +97,15 @@ class CommitController extends Controller
      */
     public function destroy(Commit $commit)
     {
-        //
+        Commit::find($commit->id)->delete();
+        return redirect('/commits');
+    }
+
+    public function destroy_selected()
+    {
+        return "selected commits will die here...";
+
+//        Commit::find($commit->id)->delete();
+//        return redirect('/commits');
     }
 }

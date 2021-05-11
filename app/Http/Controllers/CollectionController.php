@@ -124,7 +124,7 @@ class CollectionController extends Controller
         // Attach all marked plugins through their commits
         $marked4attachment = request("attach");
         if (isset($marked4attachment) && count($marked4attachment)) {
-            $collection->commits()->attach($marked4attachment);
+            $collection->plugins()->attach($marked4attachment);
         }
 
 //        ddd($collection);

@@ -24,4 +24,8 @@ class Plugin extends Model
     public function commits() {
         return $this->hasMany(Commit::class);
     }
+
+    public function collections() {
+        return $this->belongsToMany(Collection::class,'collection_plugins');
+    }
 }
