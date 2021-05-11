@@ -29,6 +29,10 @@
     padding-bottom: 20px;
 }
 
+td.title-actions {
+    padding-top: 25px;
+}
+
 #top-menu {
     padding-top: 20px;
 }
