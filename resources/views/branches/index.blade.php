@@ -3,7 +3,13 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h2>Moodle Branches</h2>
+            <table class="table">
+                <tr class="titlearea">
+                    <td id="title" class="title">Branches</td>
+                    <td class="title-actions">
+                    </td>
+                </tr>
+            </table>
 
             <table class="table table-striped">
                 <tr>
@@ -19,7 +25,7 @@
                         <td class="data-column">{{ $branch->version }}</td>
                         <td class="data-column">{{ $branch->repository }}</td>
                         <td>
-                            <a href="/branches/delete/{{ $branch->id }}" class="button is-text btn btn-danger mb-0">Delete</a>
+                            <a href="/branches/delete/{{ $branch->id }}" class="button is-text btn btn-sm btn-danger mb-0">Delete</a>
                         </td>
                     </tr>
                 @endforeach

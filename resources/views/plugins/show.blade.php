@@ -7,12 +7,12 @@
                 <tr class="titlearea">
                     <td id="title" class="title">Plugin</td>
                     <td class="title-actions">
-                        <a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn-sm">Edit</a>
-                        <a href="/commits/create/{{ $plugin->id }}" class="button is-text btn-sm">New Commit</a>
-                        <a href="/plugins" class="button is-text btn-sm">Back</a>
+                        <a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-sm">Edit</a>
+                        <a href="/commits/create/{{ $plugin->id }}" class="button is-text btn btn-sm">New Commit</a>
+                        <a href="/plugins" class="button is-text btn btn-sm">Back</a>
                         <a
                             href="/plugins/delete/{{ $plugin->id }}"
-                            class="button is-text btn-sm btn-danger"
+                            class="button is-text btn btn-sm btn-danger"
                             onclick="return confirm('Really deleting the plugin \'{{ $plugin->title }}\' and all its commits?')"
                         >
                             Delete
