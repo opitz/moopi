@@ -30,7 +30,7 @@
                         <td class="data-column">{{ $collection->updated_at }}</td>
                         <td class="data-column">{{ $collection->branch->name }}</td>
                         <td class="data-column">{{ $collection->plugins->count() }}</td>
-                        <td>
+                        <td class="collection-buttons">
                             <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-sm">Duplicate</a>
                             <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-sm">Add</a>
                             <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-sm">Edit</a>

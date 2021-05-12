@@ -1,3 +1,7 @@
+.collection-buttons {
+    white-space: nowrap;
+}
+
 #waiting {
     position: fixed;
     top: 40%;
