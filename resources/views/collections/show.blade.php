@@ -3,6 +3,9 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
+            <div id="filter_input">
+                <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
+            </div>
             <table class="table">
                 <tr class="titlearea">
                     <td id="title" class="title">Collection</td>
@@ -13,24 +16,20 @@
                         <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-sm btn-success">Export</a>
                     </td>
                     <td></td>
+                    <td></td>
                 </tr>
 
                 <tr>
                     <td class="label">Name</td>
                     <td class="data">{{ $collection->name }}</td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="label">Moodle Branch</td>
                     <td class="data">{{ $collection->branch->name }}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="label">No. of Plugins</td>
+                    <td class="label">Plugins</td>
                     <td id="plugins_number" class="data">{{ $collection->plugins()->count() }}</td>
-                    <td class="data">
-                        <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
-                    </td>
                 </tr>
             </table>
 

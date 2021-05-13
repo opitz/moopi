@@ -3,6 +3,9 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
+            <div id="filter_input">
+                <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
+            </div>
             <form method="POST" action="/collections/add_plugins/{{ $collection->id }}">
                 @csrf
                 @method('PUT')
@@ -18,10 +21,12 @@
                             <a href="/collections/delete/{{ $collection->id }}" class="button is-text btn btn-sm">Delete</a>
                         </td>
                         <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td class="label">Name</td>
                         <td><input class="form-control" type="text" name="name" id="name" value="{{ $collection->name }}"></td>
+                        <td></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -33,14 +38,8 @@
                                 @endforeach
                             </select>
                         </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="label">No. of Plugins</td>
+                        <td class="label">Plugins</td>
                         <td id="plugins_number" class="data">{{ count($plugins) }}</td>
-                        <td class="data">
-                            <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
-                        </td>
                     </tr>
                 </table>
 

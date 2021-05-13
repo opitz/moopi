@@ -2,6 +2,9 @@
 
 @section('content')
     <div id="wrapper">
+        <div id="filter_input">
+            <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
+        </div>
         <div id="page" class="container">
             <table class="table">
                 <tr class="titlearea">
@@ -9,14 +12,8 @@
                     <td class="title-actions">
                         <a href="/plugins/create" class="button is-text btn btn-sm">Add new Plugin</a>
                     </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="label">No. of Plugins</td>
+                    <td class="label">Plugins</td>
                     <td id="plugins_number" class="data">{{ count($plugins) }}</td>
-                    <td class="data">
-                        <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
-                    </td>
                 </tr>
             </table>
 

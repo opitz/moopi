@@ -2,6 +2,9 @@
 
 @section('content')
     <div id="wrapper">
+        <div id="filter_input">
+            <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
+        </div>
         <div id="page" class="container">
             <table class="table">
                 <tr class="titlearea">
@@ -17,11 +20,6 @@
                         >
                             Delete
                         </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="data">
-                        <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
                     </td>
                 </tr>
             </table>
