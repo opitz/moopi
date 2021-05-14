@@ -1,5 +1,3 @@
-require('./bootstrap');
-
 function filter_path() {
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
@@ -14,7 +12,7 @@ function filter_path() {
     var showing = 0;
     for (i = 0; i < counter; i++) {
         var pathelement = document.getElementsByClassName("install_path")[i];
-        var path = pathelement.getElementsByTagName("a")[0].innerHTML;
+        var path = pathelement.innerHTML;
         if (path.indexOf(filter) == -1) {
             pathelement.parentNode.style.display = "none";
         } else {
@@ -22,7 +20,7 @@ function filter_path() {
             showing++;
         }
     }
-    document.getElementById('plugins_number').innerHTML = showing;
+//    document.getElementById('plugins_number').innerHTML = showing;
 
 }
 

@@ -1,0 +1,19 @@
+.plugin-container {
+    background-color: #e2e8f0;
+    padding: 20px;
+}
+.plugin {
+    display: flex;
+}
+.plugin-container .label {
+    background-color: #a0aec0;
+    width: 100px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.plugin-container .data {
+    padding-top: 10px;
+    font-style: italic;
+    flex: 1;
+}

@@ -3,7 +3,7 @@
 @section('content')
     <div id="wrapper">
         <div id="filter_input">
-            <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
+            <input type="text" id="filter" onkeyup="filter()" placeholder="Filter by...">
         </div>
         <div id="page" class="container">
             <table class="table">
@@ -30,7 +30,7 @@
                 </thead>
                 <tbody>
                 @foreach ($plugins as $plugin)
-                    <tr>
+                    <tr class="plugin">
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
                         <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
                         <td class="data-column">{{ $plugin->repository_url }}</td>

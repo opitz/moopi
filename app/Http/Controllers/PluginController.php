@@ -145,4 +145,10 @@ class PluginController extends Controller
             'plugins' => Plugin::with('commits')->get()
         ]);
     }
+    public function listtable()
+    {
+        return view('plugins.listtable', [
+            'plugins' => Plugin::where('public','=',1)->get()
+        ]);
+    }
 }

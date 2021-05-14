@@ -3,7 +3,7 @@
 @section('content')
     <div id="wrapper">
         <div id="filter_input">
-            <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
+            <input type="text" id="filter" onkeyup="filter()" placeholder="Filter by...">
         </div>
         <div id="page" class="container">
             <table class="table">
@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                     @foreach ($commits as $commit)
-                        <tr scope="row">
+                        <tr class="plugin" scope="row">
                             <td class="data-column">{{ $commit->plugin->title }}</td>
                             <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
                             <td class="data-column w150">

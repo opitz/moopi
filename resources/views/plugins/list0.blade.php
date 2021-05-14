@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="/list.js"></script>
     <script src="/js/jquery.js"></script>
-    <link href="/list.css" rel="stylesheet">
+    <link href="/app.css" rel="stylesheet">
 </head>
 
 <div id="wrapper">
@@ -26,31 +26,6 @@
                 </tr>
             </table>
 
-            <div id="plugin-list">
-                @foreach ($plugins as $plugin)
-                    <div class="plugin-container">
-                        <div class="plugin plugin-name">
-                            <div class="label">Name</div>
-                            <div class="data">{{ $plugin->title }}</div>
-                        </div>
-                        <div class="plugin plugin-path">
-                            <div class="label">Path</div>
-                            <div class="data">{{ $plugin->install_path }}</div>
-                        </div>
-                        <div class="plugin plugin-developer">
-                            <div class="label">Developer</div>
-                            <div class="data">{{ $plugin->developer }}</div>
-                        </div>
-                        <div class="plugin plugin-description">
-                            <div class="label">Description</div>
-                            <div class="data">{{ $plugin->description }}</div>
-                        </div>
-                    </div>
-                    <hr>
-                @endforeach
-            </div>
-
-            <hr><hr>
 
             <table class="table">
                 <div>

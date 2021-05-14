@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/list',[PluginController::class,'list']);
+Route::get('/list1',[PluginController::class,'list']);
+Route::get('/list',[PluginController::class,'listtable']);
 
 Route::get('/test', function () {
     return view('collections.test');
@@ -116,3 +117,4 @@ Route::get('/branches', [BranchController::class,'index']);
 Route::get('/upload', [DataController::class, 'upload']);
 Route::post('/uploadFile', [DataController::class, 'uploadFile']);
 Route::get('/collections/export/{collection}', [DataController::class, 'export']);
+

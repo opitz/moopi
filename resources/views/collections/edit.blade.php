@@ -4,7 +4,7 @@
     <div id="wrapper">
         <div id="page" class="container">
             <div id="filter_input">
-                <input type="text" id="filter" onkeyup="filter_path()" placeholder="Filter install path by...">
+                <input type="text" id="filter" onkeyup="filter()" placeholder="Filter by...">
             </div>
             <form method="POST" action="/collections/{{ $collection->id }}">
                 @csrf
@@ -61,7 +61,7 @@
                     </thead>
                     <tbody>
                     @foreach($collection->plugins as $plugin)
-                        <tr>
+                        <tr class="plugin">
                             <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
                             <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
 

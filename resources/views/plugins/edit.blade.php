@@ -64,10 +64,6 @@
                         <td class="label">Year Added</td>
                         <td><input class="form-control" type="text" name="year_added" id="year_added" value="{{ $plugin->year_added }}"></td>
                     </tr>
-                    <tr>
-                        <td class="label">Public</td>
-                        <td><input type="checkbox" name="public0" id="public0" value="1" {{ ($plugin->public ? 'checked' : '') }}></td>
-                    </tr>
                 </table>
 
 

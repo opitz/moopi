@@ -1,0 +1,92 @@
+table{
+    width:100%;
+}
+
+.container {
+    position: center;
+    background-color: red;
+}
+
+#plugin-table {
+}
+
+th {
+    width: 33%;
+}
+
+td, th {
+    padding: 10px;
+}
+
+tr.plugin {
+}
+
+#filter-input {
+    position: fixed;
+    top: 9px;
+    right: 15%;
+    z-index:99;
+}
+
+#fixedheader {
+    position: relative;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    background-color: #a0aec0;
+}
+
+.header-table {
+    width: 100%;
+}
+
+.table-header {
+    width: 33%;
+}
+
+#plugin-table {
+    top: 80px;
+    left: 0px;
+    right: 0px;
+}
+
+td.title {
+    width: 33%;
+    background-color: lightgrey;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+td.install_path {
+    width: 33%;
+    background-color: lightgrey;
+    vertical-align: top;
+}
+
+td.developer {
+    width: 33%;
+    background-color: lightgrey;
+    vertical-align: top;
+}
+
+td.description {
+    background-color: white;
+}
+
+td.info {
+    background-color: #f7fafc;
+    border-style: solid;
+    border-bottom: #005a9a;
+}
+td.info-label {
+    width: 180px;
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+table.first-row {
+    width: 100%;
+}
+table.second-row {
+    width: 100%;
+}
