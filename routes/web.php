@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/json',[PluginController::class,'resource']);
+
+
 Route::get('/list1',[PluginController::class,'list']);
 Route::get('/list',[PluginController::class,'listtable']);
 

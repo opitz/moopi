@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plugin;
+use App\Http\Resources\PluginResource;
 use Illuminate\Http\Request;
 
 class PluginController extends Controller
@@ -151,4 +152,15 @@ class PluginController extends Controller
             'plugins' => Plugin::where('public','=',1)->get()
         ]);
     }
+
+    public function resource()
+    {
+        $plugins = Plugin::where('public','=',1)->get();
+        $resources = [];
+        foreach ($plugins as $plugin) {
+            $resources[] = new PluginResource($plugin);
+        }
+        return $resources;
+    }
+
 }
