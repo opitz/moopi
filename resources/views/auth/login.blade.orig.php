@@ -1,24 +1,9 @@
-<head>
-    <title>MooSIS - Moodle Submodule Information System</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/jquery.tablesorter.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="/app.js"></script>
-    <script src="/js/jquery.js"></script>
-    <link href="/app.css" rel="stylesheet">
-</head>
-<body>
-<div id="header">
-    <div id="titlebar">
-        <div id="header-title"><a href="/"><img id="logo" src="/logo.png"></a>MooSIS - Moodle Submodule Information System</div>
-    </div>
-    <hr>
-</div>
-
-
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
+            <a href="/">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
         </x-slot>
 
         <!-- Session Status -->

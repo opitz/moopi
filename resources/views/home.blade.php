@@ -11,7 +11,7 @@
 <body>
     <div id="header">
         <div id="titlebar">
-            <div id="header-title"><a href="/"><img id="logo" src="/logo.png"></a>MooSIS - Moodle Submodule Information System</div>
+            <div id="header-title"><img id="logo" src="/logo.png">MooSIS - Moodle Submodule Information System</div>
         </div>
         @auth
             <div id="top-menu" class="container">
@@ -31,12 +31,12 @@
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button id="logout-btn" class="btn btn-sm btn-secondary" type="submit">Log out</button>
+                    <button id="logout-btn" type="submit">Log out</button>
                 </form>
 
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                <i style="color: white;"> or </i>
+
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                 @endif
@@ -44,29 +44,24 @@
         </div>
     @endif
 
-
-    <div id="waiting" class="hiding">
-        <img id="tapping" src="/tapping.gif">
-        <p>
-            Please wait while we import the data.
-        </p>
-    </div>
-
-    <div id="content-wrapper">
-        @auth
-            @yield('content')
-        @else
-            <div id="login1st">
-                <div id="welcome-title"> Welcome to MooSIS.</div>
+    <div id="home-wrapper">
+        <div id="welcome-title"> Welcome to MooSIS.</div>
+        <div>
+            @auth
+                <p>
+                    Please select an option from the menu.
+                </p>
+            @else
                 <p>
                     Please log in first.
                 </p>
-            </div>
-        @endauth
+            @endauth
+        </div>
     </div>
 
+
     <hr>
-    <div id="footer-version">MooSIS v.0.9.6 / (c) 2021 QMUL</div>
+    <div id="footer-version">MooSIS v.0.9.5 / (c) 2021 QMUL</div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

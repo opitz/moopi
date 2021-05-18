@@ -1,3 +1,13 @@
+#home-wrapper {
+    padding-top: 180px;
+    padding-left: 15%;
+}
+
+#welcome-title {
+    font-size: larger;
+    color: #005a9a;
+}
+
 .collection-buttons {
     white-space: nowrap;
 }
@@ -6,6 +16,10 @@
     position: fixed;
     top: 94px;
     right: 10%;
+}
+
+#login-name, #logout-link {
+    color: white;
 }
 
 #waiting {
@@ -21,8 +35,15 @@
     font-weight: bold;
     padding: 5px;
     display: none;
-    ;
+;
 }
+
+#login1st {
+    padding-top: 180px;
+    padding-left: 15%;
+    padding-bottom: 50px;
+}
+
 #tapping {
     margin-top: 10px;
     display: block;
@@ -37,6 +58,17 @@
     width: 100%;
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+#login {
+    position: fixed;
+    top: 10px;
+    right: 10%;
+}
+
+#login a {
+    color: white;
+    text-decoration: none;
 }
 
 #header-title {
