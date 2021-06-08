@@ -3,7 +3,14 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h3>Upload CSV File</h3>
+            <table class="table">
+                <tr class="titlearea">
+                    <td id="title" class="title">Upload CSV File</td>
+                    <td class="title-actions">
+                    </td>
+                </tr>
+            </table>
+
             <p></p>
             <!-- Message -->
             @if(Session::has('message'))

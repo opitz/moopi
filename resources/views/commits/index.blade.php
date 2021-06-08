@@ -10,7 +10,6 @@
                 <tr class="titlearea">
                     <td id="title" class="title">Commits</td>
                     <td class="title-actions">
-                        <a href="/commits/create" class="button is-text btn btn-sm">Add new Commit</a>
                         <a
                             id="delete-selected-commits"
                             href="/commits/delete_selected"
@@ -28,10 +27,10 @@
             <table class="table">
                 <thead>
                     <tr class="table-header">
-                        <th>Plugin</th>
-                        <th>Path</th>
                         <th>Commit ID</th>
                         <th>Tag</th>
+                        <th>Plugin</th>
+                        <th>Path</th>
                         <th>Version</th>
                         <th>Collection</th>
                         <th>Delete selected</th>
@@ -40,12 +39,12 @@
                 <tbody>
                     @foreach ($commits as $commit)
                         <tr class="plugin" scope="row">
-                            <td class="data-column">{{ $commit->plugin->title }}</td>
-                            <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
                             <td class="data-column w150">
                                 <a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,8).'...' }}</a>
                             </td>
                             <td class="data-column">{{ $commit->tag }}</td>
+                            <td class="data-column">{{ $commit->plugin->title }}</td>
+                            <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
                             <td class="data-column">{{ $commit->version }}</td>
                             <td>
                                 <table>
