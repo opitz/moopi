@@ -31,6 +31,10 @@
                     <td class="label">Plugins</td>
                     <td id="plugins_number" class="data">{{ $collection->plugins()->count() }}</td>
                 </tr>
+                <tr>
+                    <td class="label">Description</td>
+                    <td class="data" colspan="3">{{ $collection->description }}</td>
+                </tr>
             </table>
 
             <table class="table">

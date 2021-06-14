@@ -33,7 +33,7 @@
                     <tr class="plugin">
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
                         <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
-                        <td class="data-column">{{ $plugin->repository_url }}</td>
+                        <td class="data-column"><a href="{{ $plugin->github_url }}" target="_blank">{{ $plugin->repository_url }}</td>
                         <td><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-sm">Edit</a></td>
                         <td>
                             <a

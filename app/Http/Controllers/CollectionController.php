@@ -49,6 +49,7 @@ class CollectionController extends Controller
         $collection = Collection::create([
            'name' =>  request('name'),
             'branch_id' => request('branch_id'),
+            'description' => request('description'),
         ]);
 /*
         $collection = new Collection();
@@ -94,32 +95,11 @@ class CollectionController extends Controller
      * @param  \App\Models\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function update0(Request $request, Collection $collection)
-    {
-        $collection->name = request('name');
-        $collection->branch_id = request('branch_id');
-        // Put all id's of related commits into an array and use it to sync all values
-        $commit_ids = [];
-        foreach ($collection->commits as $commit) {
-            $commit_ids[] = request("commit-$commit->id");
-        }
-        $collection->commits()->sync($commit_ids);
-
-        // Detach all marked commits
-        $marked4detachment = request("detach");
-        if (isset($marked4detachment) && count($marked4detachment)) {
-            $collection->commits()->detach($marked4detachment);
-            $collection->plugins()->detach($marked4detachment);
-        }
-
-        $collection->save();
-
-        return redirect("/collections/$collection->id");
-    }
     public function update(Request $request, Collection $collection)
     {
         $collection->name = request('name');
         $collection->branch_id = request('branch_id');
+        $collection->description = request('description');
         // Put all id's of related commits into an array and use it to sync all values
         $commit_ids = [];
         foreach ($collection->plugins as $plugin) {

@@ -32,9 +32,7 @@
 
                     <tr>
                         <td class="label">Name</td>
-                        <td><input class="form-control" type="text" name="name" id="name" value="{{ $collection->name }}"></td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="3"><input class="form-control" type="text" name="name" id="name" value="{{ $collection->name }}"></td>
                     </tr>
                     <tr>
                         <td class="label" for="branch">Moodle Branch</td>
@@ -47,6 +45,10 @@
                         </td>
                         <td class="label">Plugins</td>
                         <td id="plugins_number" class="data">{{ $collection->plugins()->count() }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Description</td>
+                        <td colspan="3"><input class="form-control" type="text" name="description" id="description" value="{{ $collection->description }}"></td>
                     </tr>
                 </table>
 

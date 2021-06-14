@@ -84,57 +84,6 @@ class DataController extends Controller
         return redirect("/collections/$collection->id");
     }
 
-    protected function insertdata0($filename,$importData_arr) {
-        $is_collection = false;
-        $i = 0;
-        foreach($importData_arr as $importData){
-            if ($i == 0) { // skip header row
-                $i++;
-                continue;
-            }
-            // Get Moodle data
-            if ($i == 1) {
-                $moodle_branch = $importData[5];
-                $i++;
-                continue;
-            }
-            $repository_url = $importData[2];
-            $plugins = Plugin::where('repository_url', $repository_url)->get(); // Check if the plugin exists.
-            if ($plugins->count() == 0) {
-                $plugin = Plugin::create([
-                    'title' => $importData[0],
-                    'install_path' => $importData[1],
-                    'repository_url' => $importData[2],
-                    'developer' => $importData[3],
-                ]);
-            } else {
-                $plugin = $plugins[0];
-            }
-
-            $commit_id = $importData[6];
-            $commit = Commit::where('commit_id',$commit_id)->get();
-            if ($commit->count() == 0) {
-                if (!$is_collection) { # if the collection flag is not set create a new collection
-                    $collection = $this->create_collection($filename, $moodle_branch);
-                    if ($collection->count() > 0) {
-                        $is_collection = true;
-                    }
-                }
-                $commit = Commit::create([
-                    'plugin_id' => $plugin->id,
-                    'commit_id' => $importData[6],
-                    'tag' => $importData[5],
-                    'version' => $importData[4]
-                ]);
-                if ($is_collection) {
-                    $cc = CollectionCommit::create([
-                        'collection_id' => $collection->id,
-                        'commit_id' => $commit->id
-                    ]);
-                }
-            }
-        }
-    }
     protected function insertdata($filename,$importData_arr) {
         $i = 0;
         $moodle_branch = $importData_arr[1][5]; // The Moodle branch is in the 6th field of the 2nd row
@@ -158,7 +107,8 @@ class DataController extends Controller
                     'title' => $importData[0],
                     'install_path' => $importData[1],
                     'repository_url' => $importData[2],
-                    'developer' => $importData[3],
+                    'github_url' => $importData[3],
+                    'developer' => $importData[4],
                 ]);
             } else {
                 $plugin = $plugins->first(); // else the plugin is the 1st (and only) member of the returned collection
@@ -174,9 +124,9 @@ class DataController extends Controller
             if ($commits->count() == 0) {
                 $commit = Commit::create([
                     'plugin_id' => $plugin->id,
-                    'commit_id' => $importData[6],
-                    'tag' => $importData[5],
-                    'version' => $importData[4]
+                    'commit_id' => $importData[7],
+                    'tag' => $importData[6],
+                    'version' => $importData[5]
                 ]);
             } else {
                 $commit = $commits->first();
@@ -222,7 +172,7 @@ class DataController extends Controller
         return $collection;
     }
 
-    public function export($id) {
+    public function export0($id) {
         $collection = Collection::find($id);
         if ($collection->count() > 0) {
             // Open the file for writing
@@ -285,35 +235,71 @@ class DataController extends Controller
         // Redirect to index
         return redirect("/collections/$collection->id");
     }
-    public function export1($id) {
+    public function export($id) {
         $collection = Collection::find($id);
         if ($collection->count() > 0) {
             // Open the file for writing
             $filename = pathinfo($collection->name);
-            $filename = '/Users/opitz/workbench/moopie/'.$filename['filename'] . '.csv';
-            $file = fopen($filename, 'w+');
+            $filename = $filename['filename'] . '.csv';
+
             // send data headers so browsers will download not display
-//            header('Content-Type: text/csv; charset=utf-8');
-//            header("Content-Disposition: attachment; filename=$filename");
-//            $file = fopen("php://output",'w');
+            header('Content-Type: text/csv; charset=utf-8');
+            header("Content-Disposition: attachment; filename=$filename");
+            $file = fopen("php://output",'w');
 
             // export a header
-            $columns = array('Name', 'Path', 'Repository', 'Developer', 'Version', 'Tag', 'Commit');
+            $columns = array(
+                'Name',
+                'Path',
+                'Repository',
+                'GitHub',
+                'Developer',
+                'Version',
+                'Tag',
+                'Commit',
+                'PluginURL',
+                'WikiURL',
+                'InfoURL',
+                'Requester',
+                'Year added',
+                'Public',
+                'Description'
+            );
             fputcsv($file, $columns);
+
             // export a row with information about core Moodle
             $moodle_data = array('Moodle', 'core', $collection->branch->repository, '', $collection->branch->version, $collection->branch->name, '');
             fputcsv($file, $moodle_data);
 
-            // export all commits and their plugin informations
-            foreach ($collection->commits as $commit) {
+            // export all plugins and their commits informations
+            foreach ($collection->plugins as $plugin) {
+                $commit_version = '';
+                $commit_tag = '';
+                $commit_commit_id = '';
+                foreach ($plugin->commits as $pcommit) {
+                    if($collection->hasCommit($pcommit->id)) {
+                        $commit_version = $pcommit->version;
+                        $commit_commit_id = $pcommit->commit_id;
+                        $commit_tag = $pcommit->tag;
+                        break;
+                    }
+                }
                 $row = array(
-                    $commit->plugin->title,
-                    $commit->plugin->install_path,
-                    $commit->plugin->repository_url,
-                    $commit->plugin->developer,
-                    $commit->plugin->version,
-                    $commit->tag,
-                    $commit->commit_id,
+                    $plugin->title,
+                    $plugin->install_path,
+                    $plugin->repository_url,
+                    $plugin->github_url,
+                    $plugin->developer,
+                    $commit_version,
+                    $commit_tag,
+                    $commit_commit_id,
+                    $plugin->plugin_url,
+                    $plugin->wiki_url,
+                    $plugin->info_url,
+                    $plugin->requester,
+                    $plugin->year_added,
+                    $plugin->public,
+                    $plugin->description,
                 );
                 fputcsv($file, $row);
             }

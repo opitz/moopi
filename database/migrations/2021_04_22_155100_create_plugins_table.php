@@ -17,6 +17,7 @@ class CreatePluginsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('repository_url');
+            $table->string('github_url');
             $table->string('developer')->nullable();
             $table->string('install_path');
             $table->string('wiki_url')->nullable();

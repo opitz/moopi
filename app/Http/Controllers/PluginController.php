@@ -49,6 +49,7 @@ class PluginController extends Controller
         $plugin = new Plugin();
         $plugin->title = request('title');
         $plugin->repository_url = request('repository_url');
+        $plugin->github_url = request('github_url');
         $plugin->developer = request('developer');
         $plugin->install_path = request('install_path');
         $plugin->wiki_url = request('wiki_url');
@@ -66,6 +67,20 @@ class PluginController extends Controller
     }
 
     /**
+     *
+     */
+    protected function get_github_url(Plugin $plugin) {
+        $repository_url = $plugin->repository_url;
+        $github_url = "#";
+        if(strpos($repository_url, 'github.com')) {
+            $rurl = substr($repository_url,strpos($repository_url,':')+1);
+            $github_url = "https://github.com/$rurl";
+            $github_url = substr($github_url,0,strlen($github_url)-4);
+        }
+        return $github_url;
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Plugin  $plugin
@@ -73,7 +88,7 @@ class PluginController extends Controller
      */
     public function show(Plugin $plugin) {
         return view('plugins.show', [
-            'plugin' => $plugin
+            'plugin' => $plugin,
         ]);
     }
     /**
@@ -106,6 +121,7 @@ class PluginController extends Controller
         ]);
         $plugin->title = request('title');
         $plugin->repository_url = request('repository_url');
+        $plugin->github_url = request('github_url');
         $plugin->developer = request('developer');
         $plugin->install_path = request('install_path');
         $plugin->wiki_url = request('wiki_url');

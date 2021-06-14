@@ -17,6 +17,7 @@ class CreateCollectionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('branch_id');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
 

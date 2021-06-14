@@ -23,6 +23,12 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="label">Description</td>
+                        <td>
+                            <textarea class="form-control" name="description" id="description"></textarea>
+                        </td>
+                    </tr>
                 </table>
                 <div><br></div>
                 <div class="field is-grouped">

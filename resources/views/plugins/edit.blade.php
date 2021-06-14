@@ -25,8 +25,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="label">GitHub URL</td>
+                        <td class="label">Repository URL</td>
                         <td><input class="form-control" type="text" name="repository_url" id="repository_url" value="{{ $plugin->repository_url }}"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">GitHub URL</td>
+                        <td><input class="form-control" type="text" name="github_url" id="github_url" value="{{ $plugin->github_url }}"></td>
                     </tr>
                     <tr>
                         <td class="label">Developer</td>

@@ -24,6 +24,7 @@ class PluginFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'repository_url' => $this->faker->url(),
+            'github_url' => $this->faker->url(),
             'developer' => $this->faker->name(),
             'install_path' => $this->faker->filePath(),
             'wiki_url' => $this->faker->url(),

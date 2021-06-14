@@ -31,10 +31,17 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="label">GitHub URL</td>
+                        <td class="label">Repository URL</td>
                         <td><input class="form-control @error('repository_url') is-invalid @enderror" type="text" name="repository_url" id="repository_url"></td>
                         @if ($errors->has('repository_url'))
                             <td class="feedback">{{ $errors->first('repository_url') }}</td>
+                        @endif
+                    </tr>
+                    <tr>
+                        <td class="label">GitHub URL</td>
+                        <td><input class="form-control @error('github_url') is-invalid @enderror" type="text" name="github_url" id="github_url"></td>
+                        @if ($errors->has('github_url'))
+                            <td class="feedback">{{ $errors->first('github_url') }}</td>
                         @endif
                     </tr>
                     <tr>

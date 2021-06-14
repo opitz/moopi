@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td class="label">Repository</td>
-                    <td class="data">{{ $plugin->repository_url }}</td>
+                    <td class="data"><a href="{{ $plugin->github_url }}" target="_blank">{{ $plugin->repository_url }}</td>
                 </tr>
                 <tr>
                     <td class="label">Developer</td>
