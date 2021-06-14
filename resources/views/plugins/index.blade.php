@@ -11,6 +11,8 @@
                     <td id="title" class="title">Plugins</td>
                     <td class="title-actions">
                         <a href="/plugins/create" class="button is-text btn btn-sm">Add new Plugin</a>
+                        <a href="/plugins/import" class="button is-text btn btn-sm">Import Plugins</a>
+                        <a href="/plugins/export" class="button is-text btn btn-sm">Export Plugins</a>
                     </td>
                     <td class="label">Plugins</td>
                     <td id="plugins_number" class="data">{{ count($plugins) }}</td>

@@ -67,11 +67,16 @@ Route::get('/plugins/create', [PluginController::class, 'create']);
 Route::post('/plugins', [PluginController::class, 'store']);
 Route::get('/plugins/edit/{plugin}', [PluginController::class, 'edit']);
 
+// Export Plugins
+Route::get("plugins/export", [DataController::class, 'exportPlugins']);
+
 // Show a single resource
 Route::get('/plugins/{plugin}', [PluginController::class, 'show']);
 
 // Delete Plugin resource
 Route::get("plugins/delete/{plugin}", [PluginController::class, 'destroy']);
+
+
 
 // Commits
 // Add a new Commit resource
@@ -131,5 +136,5 @@ Route::get('/branches', [BranchController::class, 'index']);
 
 Route::get('/upload', [DataController::class, 'upload']);
 Route::post('/uploadFile', [DataController::class, 'uploadFile']);
-Route::get('/collections/export/{collection}', [DataController::class, 'export']);
+Route::get('/collections/export/{collection}', [DataController::class, 'exportCollection']);
 

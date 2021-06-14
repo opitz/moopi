@@ -11,6 +11,8 @@ use App\Models\Commit;
 use App\Models\CollectionCommit;
 use App\Models\CollectionPlugin;
 use App\Models\Plugin;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class DataController extends Controller
 {
@@ -235,7 +237,7 @@ class DataController extends Controller
         // Redirect to index
         return redirect("/collections/$collection->id");
     }
-    public function export($id) {
+    public function exportCollection($id) {
         $collection = Collection::find($id);
         if ($collection->count() > 0) {
             // Open the file for writing
@@ -307,5 +309,62 @@ class DataController extends Controller
         }
         // Redirect to index
         return redirect("/collections/$collection->id");
+    }
+
+    public function exportPlugins() {
+        $plugins = Plugin::all();
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $headerfields = ['Title',
+            'Install Path',
+            'Repository',
+            'Description',
+            'GitHub',
+            'Developer',
+            'Plugin URL',
+            'Wiki URL',
+            'Info URL',
+            'Requester',
+            'Year added'
+            ,'Public'];
+
+        $sheet->fromArray(
+                $headerfields,   // The data to set
+                NULL,        // Array values with this value will not be set
+                'A1'         // Top left coordinate of the worksheet range where
+            //    we want to set these values (default is A1)
+            );
+        if ($plugins) foreach ($plugins as $key => $plugin) {
+            $row = array();
+            $row['title'] = $plugin->title;
+            $row['install_path'] = $plugin->install_path;
+            $row['repository_url'] = $plugin->repository_url;
+            $row['description'] = $plugin->description;
+            $row['github_url'] = $plugin->github_url;
+            $row['developer'] = $plugin->developer;
+            $row['plugin_url'] = $plugin->plugin_url;
+            $row['wiki_url'] = $plugin->wiki_url;
+            $row['info_url'] = $plugin->info_url;
+            $row['requester'] = $plugin->requester;
+            $row['yead_added'] = $plugin->year_added;
+            $row['public'] = $plugin->public;
+
+            $sheet->fromArray(
+                $row,   // The data to set
+                NULL,        // Array values with this value will not be set
+                'A'.((int)$key+2)         // Top left coordinate of the worksheet range where
+            );
+        }
+//        $sheet->setCellValue('A1', 'Hello World !');
+
+        // send data headers so browsers will download not display
+        header('Content-Type: text/csv; charset=utf-8');
+        header("Content-Disposition: attachment; filename='ExcelExportTest.xlsx'");
+
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('ExcelExportTest.xlsx');
+
+        return redirect("/plugins");
     }
 }
