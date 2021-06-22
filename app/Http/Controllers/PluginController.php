@@ -17,7 +17,7 @@ class PluginController extends Controller
     {
         //
         return view('plugins.index', [
-            'plugins' => Plugin::with('commits')->get()
+            'plugins' => Plugin::with('commits')->orderBy('Title')->get()
         ]);
     }
 
@@ -87,10 +87,15 @@ class PluginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Plugin $plugin) {
+        $previous = Plugin::where('id', '<', $plugin->id)->max('id');
+        $next = Plugin::where('id', '>', $plugin->id)->min('id');
         return view('plugins.show', [
             'plugin' => $plugin,
+            'previous' => $previous,
+            'next' => $next
         ]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -165,13 +170,13 @@ class PluginController extends Controller
     public function listtable()
     {
         return view('plugins.listtable', [
-            'plugins' => Plugin::where('public','=',1)->get()
+            'plugins' => Plugin::where('public','=',1)->orderBy('Title')->get()
         ]);
     }
 
     public function resource()
     {
-        $plugins = Plugin::where('public','=',1)->get();
+        $plugins = Plugin::where('public','=',1)->orderBy('Title')->get();
         $resources = [];
         foreach ($plugins as $plugin) {
             $resources[] = new PluginResource($plugin);

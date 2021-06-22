@@ -50,7 +50,7 @@ Route::get('/laravel', function () {
 // Sequence is important here as it will parse top to bottom
 // and when an URL matches the route takes place leaving those behind that are
 
-Route::get('/', [CollectionController::class, 'index']);
+Route::get('/', [PluginController::class, 'index']);
 
 Route::get('/home0', [HomeController::class, 'index'])->name('home.index');
 Route::get('/home', [HomeController::class, 'index']);
@@ -67,6 +67,10 @@ Route::get('/plugins/create', [PluginController::class, 'create']);
 Route::post('/plugins', [PluginController::class, 'store']);
 Route::get('/plugins/edit/{plugin}', [PluginController::class, 'edit']);
 
+// Import Plugins
+Route::get('/plugins/import', [DataController::class, 'pluginUpload']);
+Route::post('/plugins/importFile', [DataController::class, 'pluginUploadFile']);
+
 // Export Plugins
 Route::get("plugins/export", [DataController::class, 'exportPlugins']);
 
@@ -75,7 +79,6 @@ Route::get('/plugins/{plugin}', [PluginController::class, 'show']);
 
 // Delete Plugin resource
 Route::get("plugins/delete/{plugin}", [PluginController::class, 'destroy']);
-
 
 
 // Commits
@@ -103,6 +106,7 @@ Route::get("collections/create/", [CollectionController::class, 'create']);
 Route::post("collections", [CollectionController::class, 'store']);
 // Delete the Collection resource
 Route::get("collections/delete/{collection}", [CollectionController::class, 'destroy']);
+
 Route::get('collections', [CollectionController::class, 'index']);
 Route::get('collections/{collection}', [CollectionController::class, 'show']);
 Route::get('collections/duplicate/{collection}', [CollectionController::class, 'replicate']);
@@ -110,17 +114,8 @@ Route::get('collections/edit/{collection}', [CollectionController::class, 'edit'
 Route::get('collections/detach_commits/{collection}', [CollectionController::class, 'detach']);
 Route::get('collections/add/{collection}', [CollectionController::class, 'add']);
 
-Route::get('collections/add0/{collection}', function (Collection $collection) {
-    $non_commits = array();
-    $commits = Commit::all();
-    foreach ($commits as $commit) {
-        if (!$commit->hasCollection($collection->id)) {
-            $non_commits[] = $commit;
-        }
-    }
-//    ddd($non_commits);
-    return view('collections.add', ['collection' => $collection, 'commits' => $non_commits]);
-});
+Route::get('/collections/export/{collection}', [DataController::class, 'exportCollection']);
+Route::get('/collections/exportPlugins/{collection}', [DataController::class, 'exportCollectionPlugins']);
 
 // Branches
 Route::get('/branches', [BranchController::class, 'index']);
@@ -134,7 +129,7 @@ Route::get('/branches', [BranchController::class, 'index']);
 // PUT /plugins/:id
 // DELETE /plugins/:id
 
+// Data
 Route::get('/upload', [DataController::class, 'upload']);
 Route::post('/uploadFile', [DataController::class, 'uploadFile']);
-Route::get('/collections/export/{collection}', [DataController::class, 'exportCollection']);
 

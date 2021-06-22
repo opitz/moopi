@@ -68,8 +68,9 @@ class CollectionController extends Controller
      */
     public function show($id)
     {
+        $collection = Collection::with('commits')->find($id);
         return view('collections.show', [
-            'collection' => Collection::with('commits')->find($id)
+            'collection' => $collection
         ]);
     }
 

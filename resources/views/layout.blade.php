@@ -15,8 +15,8 @@
         </div>
         @auth
             <div id="top-menu" class="container">
-                <a class="top-menu button btn-sm btn-outline" href="/collections">Collections</a>
-                <a class="top-menu button btn-sm" href="/plugins">Plugins</a>
+                <a class="top-menu button btn-sm btn-outline" href="/plugins">Plugins</a>
+                <a class="top-menu button btn-sm" href="/collections">Collections</a>
                 <a class="top-menu button btn-sm" href="/commits">Commits</a>
                 <a class="top-menu button btn-sm" href="/branches">Branches</a>
             </div>
@@ -66,7 +66,7 @@
     </div>
 
     <hr>
-    <div id="footer-version">MooSIS v.20210611 / (c) 2021 QMUL, M.Opitz</div>
+    <div id="footer-version">MooSIS v.20210616 / (c) 2021 QMUL, M.Opitz</div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

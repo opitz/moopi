@@ -35,6 +35,13 @@
                             <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-sm">Add</a>
                             <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-sm">Edit</a>
                             <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-sm btn-success">Export</a>
+                            <a
+                                href="/collections/delete/{{ $collection->id }}"
+                                class="button is-text btn btn-sm btn-danger"
+                                onclick="return confirm('Really deleting the entire collection \'{{ $collection->name }}\'?')"
+                            >
+                                Delete
+                            </a>
                         </td>
                     </tr>
                 @endforeach

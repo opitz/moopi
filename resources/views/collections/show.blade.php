@@ -13,7 +13,14 @@
                         <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-sm">Duplicate</a>
                         <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-sm">Add</a>
                         <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-sm">Edit</a>
-                        <a href="/collections/export/{{ $collection->id }}" class="button is-text btn btn-sm btn-success">Export</a>
+                        <a href="/collections/exportPlugins/{{ $collection->id }}" class="button is-text btn btn-sm btn-success">Export Plugins</a>
+                        <a
+                            href="/collections/delete/{{ $collection->id }}"
+                            class="button is-text btn btn-sm btn-danger"
+                            onclick="return confirm('Really deleting the entire collection \'{{ $collection->name }}\'?')"
+                        >
+                            Delete
+                        </a>
                     </td>
                     <td></td>
                     <td></td>

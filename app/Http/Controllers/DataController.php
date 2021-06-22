@@ -16,6 +16,157 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class DataController extends Controller
 {
+    // Plugins
+    public function pluginTemplate() {
+        return [
+            "repository_url" => "Repository URL",
+            "title" => "Title",
+            "github_url" => "GitHub URL",
+            "install_path" => "Install Path",
+            "developer" => "Developer",
+            "description" => "Description",
+            "plugin_url" => "Plugin URL",
+            "wiki_url" => "Wiki URL",
+            "info_url" => "Info URL",
+            "requester" => "Requester",
+            "year_added" => "Year added",
+            "public" => "Public",
+        ];
+    }
+
+    public function pluginUpload() {
+        return view('data.excelupload');
+    }
+
+    public function pluginUploadFile(Request $request) {
+        $request->validate([
+            'file1' => 'required|mimes:xlsx|max:10000'
+        ]);
+        $file = $request->file('file1');
+        $name = time().'.xlsx';
+        $path = public_path('documents'.DIRECTORY_SEPARATOR);
+
+        if ( $file->move($path, $name) ){
+            $inputFileName = $path.$name;
+            $spreadSheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
+
+            $sheet = $spreadSheet->getSheet(0)->toArray();
+            $plugins = [];
+            foreach ($sheet as $key => $row) {
+                if ($key < 1) {
+                    continue; // Do not process the header row.
+                }
+                $this->importPluginData($row);
+            }
+            return redirect("/plugins");
+        }
+    }
+
+    protected function importPluginData($row) {
+        $template = $this->pluginTemplate();
+        $pluginKeys = array_keys($template);
+
+        // Using the repository URL as unique identifyer for a plugin.
+        $uid = 'repository_url';
+        $repository_url = $row[array_search($uid, $pluginKeys)];
+        $plugin = Plugin::where('repository_url',$repository_url)->first();
+        if ($plugin && $repository_url) {
+            foreach ($pluginKeys as $index => $key) {
+                $plugin->$key = $row[$index];
+            }
+            if ($plugin->title === NULL) {
+                $plugin->title = 'n.a.';
+            }
+            if ($plugin->public != NULL) {
+//                ddd($plugin->public);
+                $plugin->public = '1';
+            }
+            return $plugin->save();
+        }
+        return false;
+    }
+
+    public function exportPlugins() {
+        $plugins = Plugin::orderBy('title')->get();
+
+        $datestring = date("ymd");
+        $fileName = "MooSIS-PluginList_$datestring.xlsx";
+
+        $this->export2excel($plugins, $fileName);
+    }
+
+    public function exportCollectionPlugins($collection_id) {
+        $collection = Collection::where('id',$collection_id)->first();
+        $plugins = Plugin::whereHas(
+            'collections', function($q) use ($collection_id) {
+            $q->where('collection_id', $collection_id);
+        }
+        )->orderBy('title')->get();
+
+        // Set the file name
+        $fileName = "MooSIS-".$collection->name.".xlsx";
+
+        $this->export2excel($plugins, $fileName);
+    }
+
+    protected function export2excel($plugins, $fileName) {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $template = $this->pluginTemplate();
+        $pluginKeys = array_keys($template);
+
+        $sheet->fromArray(
+            $template,       // The data to set
+            NULL,       // Array values with this value will not be set
+            'A1'        // Top left coordinate of the worksheet range where
+        //    we want to set these values (default is A1)
+        );
+        if ($plugins) foreach ($plugins as $key => $plugin) {
+            $row = array();
+            foreach ($pluginKeys as $pluginKey) {
+                $row[$pluginKey] = $plugin->$pluginKey;
+            }
+            // Add the row to the sheet starting with row 2
+            $sheet->fromArray($row,NULL, 'A'.((int)$key+2));
+        }
+
+        // Formatting
+        $sheet->getColumnDimension('A')->setVisible(false); // hide the repository_url
+        $sheet->getColumnDimension('C')->setVisible(false); // hide the github_url
+        $sheet->getColumnDimension('D')->setVisible(false); // hide the install_path
+
+        $sheet->getColumnDimension('B')->setWidth(40); // set width of title column
+        $sheet->getColumnDimension('E')->setWidth(40); // set width of developer column
+        $sheet->getColumnDimension('F')->setWidth(80); // set width of description column
+        $sheet->getColumnDimension('G')->setWidth(40); // set width of plugin_url column
+        $sheet->getColumnDimension('H')->setWidth(40); // set width of wiki_url column
+        $sheet->getColumnDimension('I')->setWidth(40); // set width of info_url column
+        $sheet->getColumnDimension('J')->setWidth(40); // set width of requester column
+
+        // Formatting the header
+        $header = $sheet->getStyle('A1:L1');
+        $header->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_DARKBLUE);
+        $header->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
+        $header->getFill()->getStartColor()->setARGB('FFCCCCCC');
+        $header->getFont()->setBold(true);
+
+        // Set cells to wrap text
+        $sheet->getStyle('E1:F999')->getAlignment()->setWrapText(true);
+        // Set cells to vertical align at the top
+        $sheet->getStyle('A:L')->getAlignment()->setVertical('top');
+
+        // Finally write the file
+        $writer = new Xlsx($spreadsheet);
+
+        // Send data headers so browsers will download not display
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
+        $writer->save('php://output');
+    }
+
+
+    // Collections
     public function upload() {
         return view('data.upload');
     }
@@ -69,7 +220,7 @@ class DataController extends Controller
                     fclose($file);
 
                     // Insert to MySQL database
-                    $collection = $this->insertdata($filename,$importData_arr);
+                    $collection = $this->insertCollectionData($filename,$importData_arr);
 
                     Session::flash('message','Import Successful.');
                 }else{
@@ -82,17 +233,17 @@ class DataController extends Controller
 
         }
 
-        // Redirect to index
+        // Redirect to the collection page
         return redirect("/collections/$collection->id");
     }
 
-    protected function insertdata($filename,$importData_arr) {
+    protected function insertCollectionData($filename,$importData_arr) {
         $i = 0;
-        $moodle_branch = $importData_arr[1][5]; // The Moodle branch is in the 6th field of the 2nd row
+        $moodle_tag = $importData_arr[1][6]; // The Moodle branch is in the 7th field of the 2nd row
         $moodle_repository = $importData_arr[1][2]; // The Moodle repository is in the 3rd field of the 2nd row
-        $moodle_version = $importData_arr[1][4]; // The Moodle repository is in the 5th field of the 2nd row
+        $moodle_version = $importData_arr[1][5]; // The Moodle repository is in the 6th field of the 2nd row
         // Create a new collection
-        $collection = $this->create_collection($filename, $moodle_branch, $moodle_repository, $moodle_version);
+        $collection = $this->create_collection($filename, $moodle_tag, $moodle_repository, $moodle_version);
 
         // Now import the data row by row
         foreach($importData_arr as $importData){
@@ -142,12 +293,12 @@ class DataController extends Controller
         return $collection;
     }
 
-    protected function create_collection($filename, $moodle_branch, $moodle_repository, $moodle_version) {
+    protected function create_collection($filename, $moodle_tag, $moodle_repository, $moodle_version) {
         // Check if the branch exists and add it otherwise
-        $branch = Branch::where('name',$moodle_branch);
+        $branch = Branch::where('name',$moodle_tag);
         if ($branch->count() == 0) {
             $branch = Branch::create([
-                'name' => $moodle_branch,
+                'name' => $moodle_tag,
                 'repository' => $moodle_repository,
                 'version' => $moodle_version
             ]);
@@ -174,69 +325,6 @@ class DataController extends Controller
         return $collection;
     }
 
-    public function export0($id) {
-        $collection = Collection::find($id);
-        if ($collection->count() > 0) {
-            // Open the file for writing
-//            $filename = '/Users/opitz/workbench/moopie/exporttest.csv';
-//            $file = fopen($filename, 'w+');
-            $filename = pathinfo($collection->name);
-            $filename = $filename['filename'] . '.csv';
-//            ddd($filename);
-            // send data headers so browsers will download not display
-            header('Content-Type: text/csv; charset=utf-8');
-            header("Content-Disposition: attachment; filename=$filename");
-            $file = fopen("php://output",'w');
-
-            // export a header
-            $columns = array('Name', 'Path', 'Repository', 'Developer', 'Version', 'Tag', 'Commit');
-            fputcsv($file, $columns);
-            // export a row with information about core Moodle
-            $moodle_data = array('Moodle', 'core', $collection->branch->repository, '', $collection->branch->version, $collection->branch->name, '');
-            fputcsv($file, $moodle_data);
-
-            // export all commits and their plugin informations
-            foreach ($collection->commits as $commit) {
-                $row = array(
-                    $commit->plugin->title,
-                    $commit->plugin->install_path,
-                    $commit->plugin->repository_url,
-                    $commit->plugin->developer,
-                    $commit->plugin->version,
-                    $commit->tag,
-                    $commit->commit_id,
-                );
-//                fputcsv($file, $row);
-            }
-            // export all plugins and their commits informations
-            foreach ($collection->plugins as $plugin) {
-                $commit_version = '';
-                $commit_tag = '';
-                $commit_commit_id = '';
-                foreach ($plugin->commits as $pcommit) {
-                    if($collection->hasCommit($pcommit->id)) {
-                        $commit_version = $pcommit->version;
-                        $commit_commit_id = $pcommit->commit_id;
-                        $commit_tag = $pcommit->tag;
-                        break;
-                    }
-                }
-                $row = array(
-                    $plugin->title,
-                    $plugin->install_path,
-                    $plugin->repository_url,
-                    $plugin->developer,
-                    $commit_version,
-                    $commit_tag,
-                    $commit_commit_id,
-                );
-                fputcsv($file, $row);
-            }
-            fclose($file);
-        }
-        // Redirect to index
-        return redirect("/collections/$collection->id");
-    }
     public function exportCollection($id) {
         $collection = Collection::find($id);
         if ($collection->count() > 0) {
@@ -311,60 +399,4 @@ class DataController extends Controller
         return redirect("/collections/$collection->id");
     }
 
-    public function exportPlugins() {
-        $plugins = Plugin::all();
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-
-        $headerfields = ['Title',
-            'Install Path',
-            'Repository',
-            'Description',
-            'GitHub',
-            'Developer',
-            'Plugin URL',
-            'Wiki URL',
-            'Info URL',
-            'Requester',
-            'Year added'
-            ,'Public'];
-
-        $sheet->fromArray(
-                $headerfields,   // The data to set
-                NULL,        // Array values with this value will not be set
-                'A1'         // Top left coordinate of the worksheet range where
-            //    we want to set these values (default is A1)
-            );
-        if ($plugins) foreach ($plugins as $key => $plugin) {
-            $row = array();
-            $row['title'] = $plugin->title;
-            $row['install_path'] = $plugin->install_path;
-            $row['repository_url'] = $plugin->repository_url;
-            $row['description'] = $plugin->description;
-            $row['github_url'] = $plugin->github_url;
-            $row['developer'] = $plugin->developer;
-            $row['plugin_url'] = $plugin->plugin_url;
-            $row['wiki_url'] = $plugin->wiki_url;
-            $row['info_url'] = $plugin->info_url;
-            $row['requester'] = $plugin->requester;
-            $row['yead_added'] = $plugin->year_added;
-            $row['public'] = $plugin->public;
-
-            $sheet->fromArray(
-                $row,   // The data to set
-                NULL,        // Array values with this value will not be set
-                'A'.((int)$key+2)         // Top left coordinate of the worksheet range where
-            );
-        }
-//        $sheet->setCellValue('A1', 'Hello World !');
-
-        // send data headers so browsers will download not display
-        header('Content-Type: text/csv; charset=utf-8');
-        header("Content-Disposition: attachment; filename='ExcelExportTest.xlsx'");
-
-        $writer = new Xlsx($spreadsheet);
-        $writer->save('ExcelExportTest.xlsx');
-
-        return redirect("/plugins");
-    }
 }
