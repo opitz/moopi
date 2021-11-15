@@ -83,6 +83,10 @@
                     <td class="label">Year Added</td>
                     <td class="data">{{ $plugin->year_added }}</td>
                 </tr>
+                <tr>
+                    <td class="label">Number of Uses</td>
+                    <td class="data">{{ $plugin->uses_number }}</td>
+                </tr>
 
             </table>
 

@@ -60,6 +60,7 @@ class PluginController extends Controller
         $plugin->requested_by = request('requested_by');
         $plugin->requester = request('requester');
         $plugin->year_added = request('year_added');
+        $plugin->uses_number = request('uses_number');
         $plugin->public = request('public');
         $plugin->save();
 
@@ -137,6 +138,7 @@ class PluginController extends Controller
         $plugin->requested_by = request('requested_by');
         $plugin->requester = request('requester');
         $plugin->year_added = request('year_added');
+        $plugin->uses_number = request('uses_number');
         $plugin->public = request('public');
         $plugin->save();
 

@@ -68,6 +68,10 @@
                         <td class="label">Year Added</td>
                         <td><input class="form-control" type="text" name="year_added" id="year_added" value="{{ $plugin->year_added }}"></td>
                     </tr>
+                    <tr>
+                        <td class="label">Number of Uses</td>
+                        <td><input class="form-control" type="text" name="uses_number" id="uses_number" value="{{ $plugin->uses_number }}"></td>
+                    </tr>
                 </table>
 
 
