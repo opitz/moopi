@@ -48,6 +48,7 @@
                 <thead>
                 <tr>
                     <th>Plugin</th>
+                    <th>Description</th>
                     <th>Path</th>
                     <th>Commit ID</th>
                     <th>Tag</th>
@@ -57,7 +58,8 @@
                 @foreach($collection->plugins as $plugin)
                     <tr class="plugin">
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
-                        <td class="data-column install_path"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->install_path }}</a></td>
+                        <td class="data-column">{{ $plugin->description }}</td>
+                        <td class="data-column install_path">{{ $plugin->install_path }}</td>
                         @foreach($collection->commits as $commit)
                             @if($plugin->hasCommit($commit->id))
                                 <td class="data-column"><a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,10).'...' }}</a></td>
