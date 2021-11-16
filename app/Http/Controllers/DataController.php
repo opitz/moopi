@@ -30,6 +30,7 @@ class DataController extends Controller
             "info_url" => "Info URL",
             "requester" => "Requester",
             "year_added" => "Year added",
+            "uses_number" => "Nr of Uses",
             "public" => "Public",
         ];
     }
@@ -119,8 +120,8 @@ class DataController extends Controller
         $sheet->fromArray(
             $template,       // The data to set
             NULL,       // Array values with this value will not be set
-            'A1'        // Top left coordinate of the worksheet range where
-        //    we want to set these values (default is A1)
+            'A1'         // Top left coordinate of the worksheet range where
+                                  //    we want to set these values (default is A1)
         );
         if ($plugins) foreach ($plugins as $key => $plugin) {
             $row = array();
