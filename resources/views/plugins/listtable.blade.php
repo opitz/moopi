@@ -44,7 +44,13 @@
                         </tr>
                         <tr>
                             <td class="info" colspan="3">
-                                <mod id="more-label">More -> </mod>
+                                <mod id="plugin_path">Moodle Plugin Registry: </mod>
+                                <a href="{{ $plugin->plugin_url }}" target="_blank">{{ $plugin->plugin_url }}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info" colspan="3">
+                                <mod id="more-label">More Information:  </mod>
                                 <a href="{{ $plugin->info_url }}" target="_blank">{{ $plugin->info_url }}</a>
                             </td>
                         </tr>

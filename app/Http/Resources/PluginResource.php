@@ -24,6 +24,7 @@ class PluginResource extends JsonResource
             'repository_url' => $this->repository_url,
             'developer' => $this->developer,
             'install_path' => $this->install_path,
+            'plugin_url' => $this->plugin_url,
             'wiki_url' => $this->wiki_url,
             'info_url' => $this->info_url,
             'description' => $this->description,

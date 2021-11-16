@@ -353,13 +353,14 @@ class DataController extends Controller
                 'InfoURL',
                 'Requester',
                 'Year added',
+                'Nr of Uses',
                 'Public',
                 'Description'
             );
             fputcsv($file, $columns);
 
             // export a row with information about core Moodle
-            $moodle_data = array('Moodle', 'core', $collection->branch->repository, '', $collection->branch->version, $collection->branch->name, '');
+            $moodle_data = array('Moodle', 'core', $collection->branch->repository, '', '1999 onwards Martin Dougiamas (http://dougiamas.com)', $collection->branch->version, $collection->branch->name, '');
             fputcsv($file, $moodle_data);
 
             // export all plugins and their commits informations
@@ -389,6 +390,7 @@ class DataController extends Controller
                     $plugin->info_url,
                     $plugin->requester,
                     $plugin->year_added,
+                    $plugin->uses_number,
                     $plugin->public,
                     $plugin->description,
                 );

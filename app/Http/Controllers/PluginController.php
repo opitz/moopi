@@ -169,6 +169,12 @@ class PluginController extends Controller
             'plugins' => Plugin::with('commits')->get()
         ]);
     }
+
+    /**
+     * List all public Plugins on a nice HTML formatted page.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function listtable()
     {
         return view('plugins.listtable', [
