@@ -26,6 +26,7 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Install Path</th>
+                    <th>Uses</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -36,6 +37,7 @@
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
                         <td class="data-column">{{ $plugin->description }}</td>
                         <td class="data-column install_path">{{ $plugin->install_path }}</td>
+                        <td class="data-column">{{ $plugin->uses_number }}</td>
                         <td><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-sm">Edit</a></td>
                         <td>
                             <a
