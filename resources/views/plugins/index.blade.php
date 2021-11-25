@@ -10,6 +10,8 @@
                 <tr class="titlearea">
                     <td id="title" class="title">Plugins</td>
                     <td class="title-actions">
+                        <div id="toggle_description" class="button is-text btn btn-sm hide_description">Hide Description</div>
+                        &nbsp;
                         <a href="/plugins/create" class="button is-text btn btn-sm">Add new Plugin</a>
                         <a href="/plugins/import" class="button is-text btn btn-sm">Import Plugins</a>
                         <a href="/plugins/export" class="button is-text btn btn-sm">Export Plugins</a>
@@ -20,11 +22,11 @@
             </table>
 
 
-            <table id="plugin-index" class="table">
+            <table id="plugin-index" class="table gridview">
                 <thead>
                 <tr class="table-header">
                     <th>Name</th>
-                    <th>Description</th>
+                    <th class="col_description">Description</th>
                     <th>Install Path</th>
                     <th>Uses</th>
                     <th></th>
@@ -35,7 +37,7 @@
                 @foreach ($plugins as $plugin)
                     <tr class="plugin">
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
-                        <td class="data-column">{{ $plugin->description }}</td>
+                        <td class="data-column col_description">{{ $plugin->description }}</td>
                         <td class="data-column install_path">{{ $plugin->install_path }}</td>
                         <td class="data-column">{{ $plugin->uses_number }}</td>
                         <td><a href="/plugins/edit/{{ $plugin->id }}" class="button is-text btn btn-sm">Edit</a></td>

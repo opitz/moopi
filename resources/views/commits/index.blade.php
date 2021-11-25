@@ -24,7 +24,7 @@
             </table>
 
 
-            <table class="table">
+            <table class="table gridview">
                 <thead>
                     <tr class="table-header">
                         <th>Commit ID</th>
@@ -42,7 +42,7 @@
                             <td class="data-column w150">
                                 <a href="/commits/{{ $commit->id }}">{{ substr($commit->commit_id,0,8).'...' }}</a>
                             </td>
-                            <td class="data-column">{{ $commit->tag }}</td>
+                            <td class="data-column">{{ substr($commit->tag,0,18).(strlen($commit->tag) > 18 ? '...' : '') }}</td>
                             <td class="data-column">{{ $commit->plugin->title }}</td>
                             <td class="data-column install_path"><a href="/plugins/{{ $commit->plugin->id }}">{{ $commit->plugin->install_path }}</a></td>
                             <td class="data-column">{{ $commit->version }}</td>

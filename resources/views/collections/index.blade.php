@@ -13,10 +13,11 @@
                 </tr>
             </table>
 
-            <table class="table">
+            <table class="table gridview">
                 <thead>
                 <tr>
                     <th class="w150">Collection</th>
+                    <th class="w150">Description</th>
                     <th class="w250">Updated at</th>
                     <th class="w250">Moodle Branch</th>
                     <th class="w150 center">No. of Plugins</th>
@@ -27,6 +28,7 @@
                 @foreach ($collections as $collection)
                     <tr>
                         <td class="data-column"><a href="/collections/{{ $collection->id }}">{{ $collection->name }}</a></td>
+                        <td class="data-column">{{ $collection->description }}</td>
                         <td class="data-column">{{ $collection->updated_at }}</td>
                         <td class="data-column">{{ $collection->branch->name }}</td>
                         <td class="data-column">{{ $collection->plugins->count() }}</td>

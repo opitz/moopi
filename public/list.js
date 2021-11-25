@@ -23,11 +23,3 @@ function filter_path() {
 //    document.getElementById('plugins_number').innerHTML = showing;
 
 }
-
-function test() {
-//            var counter = document.getElementsByTagName("td.install_path").length;
-    var counter = document.getElementsByClassName("install_path").length;
-    alert('check the plugin numbers now!');
-    document.getElementById('plugins_number').innerHTML = 'huhu!';
-
-}

@@ -10,6 +10,8 @@
                 <tr class="titlearea">
                     <td id="title" class="title">Collection</td>
                     <td class="title-actions">
+                        <div id="toggle_description" class="button is-text btn btn-sm hide_description">Hide Description</div>
+
                         <a href="/collections/duplicate/{{ $collection->id }}" class="button is-text btn btn-sm">Duplicate</a>
                         <a href="/collections/add/{{ $collection->id }}" class="button is-text btn btn-sm">Add</a>
                         <a href="/collections/edit/{{ $collection->id }}" class="button is-text btn btn-sm">Edit</a>
@@ -44,11 +46,11 @@
                 </tr>
             </table>
 
-            <table class="table">
+            <table class="table gridview">
                 <thead>
                 <tr>
                     <th>Plugin</th>
-                    <th>Description</th>
+                    <th class="col_description">Description</th>
                     <th>Path</th>
                     <th>Commit ID</th>
                     <th>Tag</th>
@@ -58,7 +60,7 @@
                 @foreach($collection->plugins as $plugin)
                     <tr class="plugin">
                         <td class="data-column"><a href="/plugins/{{ $plugin->id }}">{{ $plugin->title }}</a></td>
-                        <td class="data-column">{{ $plugin->description }}</td>
+                        <td class="data-column col_description">{{ $plugin->description }}</td>
                         <td class="data-column install_path">{{ $plugin->install_path }}</td>
                         @foreach($collection->commits as $commit)
                             @if($plugin->hasCommit($commit->id))

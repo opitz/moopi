@@ -187,3 +187,12 @@ td.title {
 .w500 {
     width: 500px;
 }
+
+#toggle_description {
+    color: white;
+    width: 140px;
+}
+
+.gridview tr:nth-of-type( even ) td{
+    background-color: #e2e8f0;
+}

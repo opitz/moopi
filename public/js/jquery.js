@@ -1,6 +1,8 @@
 $( document ).ready(function() {
     console.log( "jQuery is ready!" );
 
+    toggle_description();
+
     $('#testbutton').click(function(){
         alert("A testbutton was clicked.");
     });
@@ -8,6 +10,7 @@ $( document ).ready(function() {
     $('#import_data').click(function(){
         $('#waiting').show();
     });
+
 
     $('table').tablesorter();
 
@@ -47,4 +50,21 @@ function filter() {
     }
 
     $('#plugins_number').html($text);
+}
+
+function toggle_description() {
+    $('#toggle_description').on('click', function() {
+        if ($('#toggle_description').hasClass('hide_description')) {
+            $('#toggle_description').addClass('show_description');
+            $('#toggle_description').removeClass('hide_description');
+            $('.col_description').hide();
+            $('#toggle_description').html('Show Description');
+        } else {
+            $('#toggle_description').addClass('hide_description');
+            $('#toggle_description').removeClass('show_description');
+            $('.col_description').show();
+            $('#toggle_description').html('Hide Description');
+        }
+    });
+
 }
