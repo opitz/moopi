@@ -5,6 +5,7 @@
 /public/documents
 /storage/*.key
 /vendor
+/.idea
 .DS_Store
 .env
 .env.backup
